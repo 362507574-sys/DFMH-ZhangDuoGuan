@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "taskId": "20260728-004-helmsman-pipeline",
+  "requestId": "20260728-004-helmsman-pipeline",
+  "enterpriseId": "ai-digital-employee-control-center",
+  "primaryOrganization": "ai-helmsman",
+  "kind": "internal-pipeline-validation",
+  "capabilitySequence": [
+    "enterprise-analysis",
+    "strategy-planning",
+    "business-model"
+  ],
+  "status": "quality_review",
+  "knowledgeStatus": "matched",
+  "candidateVersion": 1,
+  "acceptsMajorActionExecution": false,
+  "createdAt": "2026-07-28T00:00:00.000Z",
+  "updatedAt": "2026-07-28T00:00:00.000Z"
+}
+

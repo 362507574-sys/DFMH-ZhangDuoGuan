@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "enterpriseId": "replace-with-enterprise-id",
+  "displayName": "企业名称",
+  "region": {
+    "country": "CN",
+    "province": "",
+    "city": ""
+  },
+  "timezone": "Asia/Shanghai",
+  "authorization": {
+    "grantedBy": "",
+    "grantedAt": "2026-07-28T00:00:00.000Z",
+    "allowedScopes": [
+      "strategy.read",
+      "strategy.draft.write"
+    ],
+    "deniedScopes": [
+      "enterprise.financials.read",
+      "enterprise.legal.read"
+    ]
+  },
+  "strategySummary": {
+    "stage": "diagnosis",
+    "offerings": [],
+    "customers": [],
+    "revenueLogic": "unknown"
+  },
+  "sensitive": {
+    "financials": {},
+    "ownership": {},
+    "legal": {}
+  },
+  "facts": [],
+  "unknowns": [],
+  "version": 1,
+  "createdAt": "2026-07-28T00:00:00.000Z",
+  "updatedAt": "2026-07-28T00:00:00.000Z"
+}

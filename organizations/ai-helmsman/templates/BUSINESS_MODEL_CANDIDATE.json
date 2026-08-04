@@ -1,0 +1,71 @@
+{
+  "schemaVersion": 1,
+  "capabilityId": "business-model",
+  "taskId": "20260728-003-business-model",
+  "enterpriseId": "replace-with-enterprise-id",
+  "version": 1,
+  "status": "candidate",
+  "upstreamAnalysis": {
+    "capabilityId": "enterprise-analysis",
+    "enterpriseId": "replace-with-enterprise-id",
+    "taskId": "replace-with-analysis-task-id",
+    "version": 1,
+    "sha256": "replace-with-64-character-sha256"
+  },
+  "upstreamStrategy": {
+    "capabilityId": "strategy-planning",
+    "enterpriseId": "replace-with-enterprise-id",
+    "taskId": "replace-with-strategy-task-id",
+    "version": 1,
+    "sha256": "replace-with-64-character-sha256",
+    "status": "candidate"
+  },
+  "evidenceLedger": [],
+  "customerArchitecture": {
+    "segments": [],
+    "payer": "",
+    "user": "",
+    "decisionMaker": "",
+    "beneficiary": ""
+  },
+  "valuePropositions": [],
+  "offerArchitecture": [],
+  "productStructure": [],
+  "profitModel": {
+    "revenueStreamRefs": [],
+    "costCategoryRefs": [],
+    "unitEconomicsVariableRefs": [],
+    "profitFormula": "",
+    "cashCollectionConstraint": "",
+    "evidenceRefs": []
+  },
+  "revenueModel": [],
+  "costModel": [],
+  "unitEconomics": {
+    "formula": "",
+    "variables": [],
+    "breakEvenCondition": ""
+  },
+  "customerJourney": {
+    "acquisition": [],
+    "conversion": [],
+    "delivery": [],
+    "retention": [],
+    "repurchase": []
+  },
+  "customerValueChain": [],
+  "keyResources": [],
+  "partners": [],
+  "businessAssumptions": [],
+  "experiments": [],
+  "growthModel": {
+    "formula": "",
+    "levers": [],
+    "constraints": [],
+    "stopConditions": []
+  },
+  "risks": [],
+  "unknowns": [],
+  "decisionsRequired": [],
+  "createdAt": "2026-07-28T00:00:00.000Z"
+}

@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "publicSkills": [
+    {
+      "id": "public.promotional-poster",
+      "displayName": "普通宣传海报",
+      "capabilityId": "promotional-poster",
+      "maturity": "operational",
+      "allowedOrganizations": [
+        "ai-helmsman",
+        "ai-growth-strategist",
+        "ai-deal-officer",
+        "ai-organization-officer",
+        "ai-brand-officer"
+      ],
+      "defaultPrimaryOrganization": "ai-brand-officer"
+    },
+    {
+      "id": "public.taobao-ecommerce-image-set",
+      "displayName": "淘宝电商套图",
+      "capabilityId": "taobao-ecommerce",
+      "maturity": "pilot",
+      "allowedOrganizations": [
+        "ai-helmsman",
+        "ai-growth-strategist",
+        "ai-deal-officer",
+        "ai-organization-officer",
+        "ai-brand-officer"
+      ],
+      "defaultPrimaryOrganization": "ai-deal-officer"
+    }
+  ]
+}

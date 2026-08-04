@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "capabilityId": "enterprise-analysis",
+  "enterpriseId": "replace-with-enterprise-id",
+  "businessProjectId": "20260729-001-replace-with-project",
+  "taskId": "20260729-001-enterprise-analysis",
+  "planVersion": 1,
+  "objective": "识别企业现状、行业环境、竞争情况、优劣势和核心问题",
+  "analysisCoverage": [
+    "enterprise-status",
+    "industry-environment",
+    "competitive-situation",
+    "strengths-and-constraints",
+    "core-problems"
+  ],
+  "artifactBindings": [],
+  "evidenceBindings": [],
+  "requiredInputs": [
+    "enterprise-objective",
+    "products-and-services",
+    "customer-and-market-materials",
+    "operating-and-financial-materials-if-authorized",
+    "knowledge-preflight-credential"
+  ],
+  "stages": [],
+  "reviewCheckpoints": [],
+  "stopConditions": [],
+  "outputRoot": "organizations/ai-helmsman/tasks/20260729-001-enterprise-analysis",
+  "createdAt": "2026-07-29T00:00:00.000Z"
+}

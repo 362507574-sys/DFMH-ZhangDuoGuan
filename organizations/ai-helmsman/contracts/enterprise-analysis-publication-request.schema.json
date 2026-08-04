@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "ai-helmsman/enterprise-analysis-publication-request.schema.json",
+  "title": "企业分析控制中心发布请求",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "enterpriseId",
+    "businessProjectId",
+    "taskId",
+    "artifactId",
+    "artifactType",
+    "sourceOrganizationId",
+    "version",
+    "candidatePath",
+    "candidateSha256",
+    "dependencies",
+    "evidenceBindings",
+    "debugReport",
+    "approval",
+    "status",
+    "requestedAt"
+  ],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "enterpriseId": { "type": "string" },
+    "businessProjectId": { "type": "string" },
+    "taskId": { "type": "string" },
+    "artifactId": { "const": "enterprise-analysis" },
+    "artifactType": { "const": "enterprise-analysis-candidate" },
+    "sourceOrganizationId": { "const": "ai-helmsman" },
+    "version": { "type": "integer", "minimum": 1 },
+    "candidatePath": { "type": "string" },
+    "candidateSha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "dependencies": { "type": "array" },
+    "evidenceBindings": { "type": "array" },
+    "debugReport": { "type": "string", "minLength": 1 },
+    "approval": { "type": "object" },
+    "status": { "const": "awaiting_control_center_publication" },
+    "requestedAt": { "type": "string", "format": "date-time" }
+  }
+}

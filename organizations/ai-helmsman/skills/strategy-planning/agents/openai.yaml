@@ -1,0 +1,4 @@
+interface:
+  display_name: "AI掌舵官·战略规划"
+  short_description: "基于企业分析证据形成战略取舍资源边界与九十天行动计划"
+  default_prompt: "使用 $strategy-planning 基于企业分析制定有取舍的90天战略规划候选。"

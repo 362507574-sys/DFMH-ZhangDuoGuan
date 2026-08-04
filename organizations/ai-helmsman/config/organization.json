@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "id": "ai-helmsman",
+  "displayName": "AI掌舵官",
+  "systemName": "战略决策系统",
+  "deploymentMode": "same_project_organization_module",
+  "status": "pilot",
+  "acceptsFormalTasks": false,
+  "rootControllerRegistration": "registered_designing",
+  "formalTaskRouting": "fallback_existing",
+  "coreSkills": [
+    {
+      "id": "enterprise-analysis",
+      "name": "企业分析",
+      "status": "pilot"
+    },
+    {
+      "id": "strategy-planning",
+      "name": "战略规划",
+      "status": "pilot"
+    },
+    {
+      "id": "business-model",
+      "name": "商业模式",
+      "status": "pilot"
+    }
+  ],
+  "publicSkillDependencies": [
+    {
+      "id": "public.promotional-poster",
+      "mode": "via-control-center"
+    },
+    {
+      "id": "public.taobao-ecommerce-image-set",
+      "mode": "via-control-center"
+    }
+  ]
+}

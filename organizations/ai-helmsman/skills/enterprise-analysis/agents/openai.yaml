@@ -1,0 +1,4 @@
+interface:
+  display_name: "AI掌舵官·企业分析"
+  short_description: "在原项目中规划、诊断、纠偏并版本化沉淀企业经营分析"
+  default_prompt: "使用 $enterprise-analysis 在当前业务项目中完成可追溯、可暂停恢复的企业分析。"

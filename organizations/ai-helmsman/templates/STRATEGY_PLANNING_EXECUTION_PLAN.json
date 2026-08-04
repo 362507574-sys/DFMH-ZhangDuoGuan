@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "capabilityId": "strategy-planning",
+  "enterpriseId": "replace-with-enterprise-id",
+  "businessProjectId": "20260729-002-replace-with-project",
+  "taskId": "20260729-002-strategy-planning",
+  "planVersion": 1,
+  "objective": "确定企业方向、发展路径、资源配置和90天行动计划",
+  "strategyCoverage": [
+    "enterprise-direction",
+    "development-path",
+    "resource-allocation",
+    "ninety-day-action-plan"
+  ],
+  "artifactBindings": [
+    {
+      "artifactId": "enterprise-analysis",
+      "version": 1,
+      "sha256": "replace-with-64-character-sha256",
+      "sourceOrganizationId": "ai-helmsman"
+    }
+  ],
+  "evidenceBindings": [],
+  "requiredInputs": [
+    "published-enterprise-analysis-version-and-sha256",
+    "enterprise-owner-strategic-objective",
+    "resource-capacity-and-hard-constraints",
+    "current-operating-metrics",
+    "knowledge-preflight-credential"
+  ],
+  "stages": [],
+  "reviewCheckpoints": [],
+  "stopConditions": [],
+  "outputRoot": "organizations/ai-helmsman/tasks/20260729-002-strategy-planning",
+  "createdAt": "2026-07-29T00:00:00.000Z"
+}

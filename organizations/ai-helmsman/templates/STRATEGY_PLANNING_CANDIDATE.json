@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "capabilityId": "strategy-planning",
+  "taskId": "20260728-002-strategy-planning",
+  "enterpriseId": "replace-with-enterprise-id",
+  "version": 1,
+  "status": "candidate",
+  "upstreamAnalysis": {
+    "capabilityId": "enterprise-analysis",
+    "enterpriseId": "replace-with-enterprise-id",
+    "taskId": "replace-with-analysis-task-id",
+    "version": 1,
+    "sha256": "replace-with-64-character-sha256",
+    "status": "candidate",
+    "coreProblemRefs": ["replace-with-core-problem-ref"]
+  },
+  "evidenceLedger": [],
+  "strategicQuestion": "明确本次必须回答的战略选择题",
+  "strategicOptions": [],
+  "priorityOrder": [],
+  "recommendation": {
+    "optionId": "",
+    "rationale": "",
+    "opportunityCosts": [],
+    "evidenceRefs": []
+  },
+  "enterpriseDirection": {
+    "statement": "",
+    "targetCustomer": "",
+    "valueFocus": "",
+    "boundary": "",
+    "evidenceRefs": []
+  },
+  "developmentPath": [],
+  "resourceAllocation": [],
+  "choices": {
+    "focus": [],
+    "tradeOffs": [],
+    "notDoing": []
+  },
+  "phaseGoals": [],
+  "resourcePrinciples": [],
+  "assumptions": [],
+  "risks": [],
+  "metrics": [],
+  "milestones": [],
+  "ninetyDayPlan": [],
+  "downstreamBrief": {
+    "businessModel": {
+      "inputs": [],
+      "decisionsNeeded": []
+    },
+    "executionOrganizations": []
+  },
+  "decisionsRequired": [],
+  "createdAt": "2026-07-28T00:00:00.000Z"
+}

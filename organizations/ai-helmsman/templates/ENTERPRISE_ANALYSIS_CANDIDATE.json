@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "taskId": "20260728-001-enterprise-analysis",
+  "enterpriseId": "replace-with-enterprise-id",
+  "version": 1,
+  "enterpriseSnapshot": {
+    "objective": "",
+    "offerings": [],
+    "customers": [],
+    "revenueLogic": "unknown",
+    "stage": "diagnosis"
+  },
+  "evidenceLedger": [],
+  "unknowns": [],
+  "externalContext": [],
+  "internalCapabilities": [],
+  "metricBaseline": [],
+  "issueTree": [],
+  "strengths": [],
+  "constraints": [],
+  "opportunities": [],
+  "risks": [],
+  "coreProblems": [],
+  "downstreamBrief": {
+    "strategyPlanning": {
+      "inputs": [],
+      "decisionsNeeded": []
+    },
+    "businessModel": {
+      "inputs": [],
+      "experimentsNeeded": []
+    }
+  },
+  "decisionsRequired": [],
+  "createdAt": "2026-07-28T00:00:00.000Z"
+}

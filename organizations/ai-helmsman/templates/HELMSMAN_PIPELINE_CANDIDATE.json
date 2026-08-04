@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "capabilityId": "helmsman-pipeline",
+  "taskId": "20260728-004-helmsman-pipeline",
+  "enterpriseId": "replace-with-enterprise-id",
+  "version": 1,
+  "status": "candidate",
+  "stages": [
+    {
+      "capabilityId": "enterprise-analysis",
+      "enterpriseId": "replace-with-enterprise-id",
+      "taskId": "replace-with-analysis-task-id",
+      "version": 1,
+      "sha256": "replace-with-64-character-sha256",
+      "status": "candidate"
+    },
+    {
+      "capabilityId": "strategy-planning",
+      "enterpriseId": "replace-with-enterprise-id",
+      "taskId": "replace-with-strategy-task-id",
+      "version": 1,
+      "sha256": "replace-with-64-character-sha256",
+      "status": "candidate"
+    },
+    {
+      "capabilityId": "business-model",
+      "enterpriseId": "replace-with-enterprise-id",
+      "taskId": "replace-with-business-model-task-id",
+      "version": 1,
+      "sha256": "replace-with-64-character-sha256",
+      "status": "candidate"
+    }
+  ],
+  "readiness": {
+    "enterpriseAnalysis": "pending",
+    "strategyPlanning": "pending",
+    "businessModel": "pending"
+  },
+  "unresolvedRisks": [],
+  "decisionsRequired": [],
+  "createdAt": "2026-07-28T00:00:00.000Z"
+}
+

@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "organizationId": "ai-helmsman",
+  "rootControllerRegistration": "registered_designing",
+  "formalTaskRouting": "fallback_existing",
+  "peerOrganizationCalls": "contract_only",
+  "acceptsFormalTasks": false,
+  "organizationStatusUpdate": "designing",
+  "coreSkillStatusUpdates": [
+    {
+      "id": "enterprise-analysis",
+      "status": "designing"
+    },
+    {
+      "id": "strategy-planning",
+      "status": "designing"
+    },
+    {
+      "id": "business-model",
+      "status": "designing"
+    }
+  ]
+}

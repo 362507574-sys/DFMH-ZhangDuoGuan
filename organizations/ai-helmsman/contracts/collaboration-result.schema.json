@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "ai-helmsman/collaboration-result.schema.json",
+  "title": "AI掌舵官跨组织协作结果",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "contractVersion",
+    "parentTaskId",
+    "requestId",
+    "enterpriseId",
+    "primaryOrganization",
+    "respondingOrganization",
+    "requestedCapability",
+    "status",
+    "artifacts",
+    "evidence"
+  ],
+  "properties": {
+    "contractVersion": { "const": 1 },
+    "primaryOrganization": { "const": "ai-helmsman" },
+    "status": { "enum": ["completed", "partial", "failed"] },
+    "artifacts": { "type": "array" },
+    "evidence": { "type": "array" }
+  }
+}

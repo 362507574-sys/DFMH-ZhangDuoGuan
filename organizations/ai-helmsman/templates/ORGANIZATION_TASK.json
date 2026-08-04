@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "taskId": "20260728-001-enterprise-analysis",
+  "parentTaskId": "20260728-001-enterprise-analysis",
+  "requestId": "20260728-001-enterprise-analysis",
+  "idempotencyKey": "enterprise-id|task-id",
+  "enterpriseId": "replace-with-enterprise-id",
+  "primaryOrganization": "ai-helmsman",
+  "capabilityId": "enterprise-analysis",
+  "status": "received",
+  "accessEnvelope": {
+    "enterpriseId": "replace-with-enterprise-id",
+    "allowedScopes": [
+      "strategy.read",
+      "strategy.draft.write"
+    ],
+    "deniedScopes": []
+  },
+  "inputRefs": [],
+  "knowledgeStatus": "pending",
+  "candidateVersion": 0,
+  "revision": 1,
+  "failureCounts": {},
+  "decisionRef": null,
+  "approvedCandidateSha256": null,
+  "createdAt": "2026-07-28T00:00:00.000Z",
+  "updatedAt": "2026-07-28T00:00:00.000Z"
+}

@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "ai-helmsman/strategy-planning-execution-plan.schema.json",
+  "title": "战略规划项目执行计划",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "capabilityId",
+    "enterpriseId",
+    "businessProjectId",
+    "taskId",
+    "planVersion",
+    "objective",
+    "strategyCoverage",
+    "artifactBindings",
+    "evidenceBindings",
+    "requiredInputs",
+    "stages",
+    "reviewCheckpoints",
+    "stopConditions",
+    "outputRoot",
+    "createdAt"
+  ],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "capabilityId": { "const": "strategy-planning" },
+    "enterpriseId": { "type": "string" },
+    "businessProjectId": { "type": "string" },
+    "taskId": { "type": "string" },
+    "planVersion": { "type": "integer", "minimum": 1 },
+    "objective": { "type": "string", "minLength": 1 },
+    "strategyCoverage": { "type": "array", "minItems": 4, "uniqueItems": true },
+    "artifactBindings": { "type": "array" },
+    "evidenceBindings": { "type": "array" },
+    "requiredInputs": { "type": "array", "minItems": 1 },
+    "stages": { "type": "array", "minItems": 9 },
+    "reviewCheckpoints": { "type": "array", "minItems": 4 },
+    "stopConditions": { "type": "array", "minItems": 1 },
+    "outputRoot": { "type": "string" },
+    "createdAt": { "type": "string", "format": "date-time" }
+  }
+}
+
+

@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "ai-helmsman/helmsman-pipeline-candidate.schema.json",
+  "title": "AI掌舵官三技能联合候选",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "capabilityId",
+    "taskId",
+    "enterpriseId",
+    "version",
+    "status",
+    "stages",
+    "readiness",
+    "unresolvedRisks",
+    "decisionsRequired",
+    "createdAt"
+  ],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "capabilityId": { "const": "helmsman-pipeline" },
+    "taskId": { "type": "string" },
+    "enterpriseId": { "type": "string" },
+    "version": { "type": "integer", "minimum": 1 },
+    "status": { "const": "candidate" },
+    "stages": { "type": "array", "minItems": 3, "maxItems": 3 },
+    "readiness": { "type": "object" },
+    "unresolvedRisks": { "type": "array", "minItems": 1 },
+    "decisionsRequired": { "type": "array", "minItems": 1 },
+    "createdAt": { "type": "string", "format": "date-time" }
+  }
+}
+

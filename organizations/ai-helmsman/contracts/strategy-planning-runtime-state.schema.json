@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "ai-helmsman/strategy-planning-runtime-state.schema.json",
+  "title": "战略规划项目运行状态",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "capabilityId",
+    "enterpriseId",
+    "businessProjectId",
+    "taskId",
+    "objective",
+    "status",
+    "revision",
+    "planVersion",
+    "candidateVersion",
+    "debugAttempt",
+    "artifactBindings",
+    "evidenceBindings",
+    "checkpoint",
+    "failureCounts",
+    "lastDebugReport",
+    "publicationRequest",
+    "publishedArtifact",
+    "pausedAt",
+    "lastFreshnessReview",
+    "createdAt",
+    "updatedAt"
+  ],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "capabilityId": { "const": "strategy-planning" },
+    "enterpriseId": { "type": "string" },
+    "businessProjectId": { "type": "string" },
+    "taskId": { "type": "string" },
+    "objective": { "type": "string", "minLength": 1 },
+    "status": {
+      "enum": [
+        "planned",
+        "analyzing",
+        "debugging",
+        "waiting_input",
+        "paused",
+        "waiting_review",
+        "ready_for_publication",
+        "published",
+        "failed",
+        "cancelled"
+      ]
+    },
+    "revision": { "type": "integer", "minimum": 1 },
+    "planVersion": { "type": "integer", "minimum": 1 },
+    "candidateVersion": { "type": "integer", "minimum": 0 },
+    "debugAttempt": { "type": "integer", "minimum": 0, "maximum": 3 },
+    "artifactBindings": { "type": "array" },
+    "evidenceBindings": { "type": "array" },
+    "checkpoint": { "type": "object" },
+    "failureCounts": { "type": "object" },
+    "lastDebugReport": { "type": "string" },
+    "publicationRequest": { "type": "string" },
+    "publishedArtifact": {
+      "type": ["object", "null"]
+    },
+    "pausedAt": { "type": "string" },
+    "lastFreshnessReview": {
+      "type": ["object", "null"]
+    },
+    "createdAt": { "type": "string", "format": "date-time" },
+    "updatedAt": { "type": "string", "format": "date-time" }
+  }
+}
+
+

@@ -1,0 +1,4 @@
+interface:
+  display_name: "AI掌舵官·商业模式"
+  short_description: "把客户价值收入成本交付与单位经济连接成可验证经营闭环"
+  default_prompt: "使用 $business-model 基于企业分析与战略规划设计可验证商业模式候选。"

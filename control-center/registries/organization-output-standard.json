@@ -1,0 +1,68 @@
+{
+  "schemaVersion": 1,
+  "detailHeadings": [
+    "核心判断",
+    "深度分析",
+    "依据与边界",
+    "落地建议"
+  ],
+  "fourthLevelHeadings": {
+    "深度分析": [
+      "关键变量",
+      "推导逻辑"
+    ],
+    "依据与边界": [
+      "已知事实",
+      "待验证信息"
+    ],
+    "落地建议": [
+      "执行动作",
+      "验收指标",
+      "风险与停止条件"
+    ]
+  },
+  "organizations": [
+    {
+      "organizationId": "ai-helmsman",
+      "displayName": "AI掌舵官",
+      "systemName": "战略决策系统",
+      "sourceImageSha256": "c7116b89d11784536fc37089f6a6ebbcf675f19d2cdfdbc1a2f3550592a6c583",
+      "skills": [
+        {
+          "skillId": "enterprise-analysis",
+          "displayName": "企业分析技能",
+          "outputTitle": "企业分析",
+          "sections": [
+            "企业现状",
+            "行业环境",
+            "竞争情况",
+            "优势短板",
+            "核心问题"
+          ]
+        },
+        {
+          "skillId": "strategy-planning",
+          "displayName": "战略规划技能",
+          "outputTitle": "战略规划",
+          "sections": [
+            "企业方向",
+            "发展路径",
+            "资源配置",
+            "90天行动计划"
+          ]
+        },
+        {
+          "skillId": "business-model",
+          "displayName": "商业模式技能",
+          "outputTitle": "商业模式",
+          "sections": [
+            "产品结构",
+            "盈利模式",
+            "客户价值链",
+            "增长模型"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,475 @@
+{
+  "schemaVersion": 1,
+  "capabilityId": "business-model",
+  "taskId": "20260728-003-helmsman-business-model",
+  "enterpriseId": "ai-digital-employee-control-center",
+  "version": 1,
+  "status": "candidate",
+  "upstreamAnalysis": {
+    "capabilityId": "enterprise-analysis",
+    "enterpriseId": "ai-digital-employee-control-center",
+    "taskId": "20260728-001-control-center-analysis",
+    "version": 1,
+    "sha256": "9a88130484ac499813083b9d567084267caf77121c2410984483400d3ef7d9eb"
+  },
+  "upstreamStrategy": {
+    "capabilityId": "strategy-planning",
+    "enterpriseId": "ai-digital-employee-control-center",
+    "taskId": "20260728-002-helmsman-strategy",
+    "version": 1,
+    "sha256": "4b11813b683d190b38543bc4cdd2877165b09539b25f27f136d1a15d16f82ccf",
+    "status": "candidate"
+  },
+  "evidenceLedger": [
+    {
+      "id": "E-001",
+      "factClass": "fact",
+      "statement": "AI数字员工控制中心已固定一个中心、五个组织、十五个核心技能和公共技能库",
+      "sourceRef": "control-center/registries/organizations.json"
+    },
+    {
+      "id": "E-002",
+      "factClass": "fact",
+      "statement": "90天战略候选优先完成AI掌舵官三技能闭环，不同时宣布五组织全部正式上线",
+      "sourceRef": "organizations/ai-helmsman/tasks/ai-digital-employee-control-center/20260728-002-helmsman-strategy/candidates/strategy-planning-v1.json"
+    },
+    {
+      "id": "E-003",
+      "factClass": "fact",
+      "statement": "飞书知识原文提供销售额由流量、客单价和转化率连接的变量公式，可作为商业验证变量参考",
+      "sourceRef": "https://bvvbkaq8l6.feishu.cn/wiki/Oy8awUAsfiOKJ2khT3DcgYvrnGe"
+    },
+    {
+      "id": "E-004",
+      "factClass": "inference",
+      "statement": "本项目的商业验证需要同时记录获客、定价、转化和交付成本，而不能只验证功能是否运行",
+      "sourceRef": "E-001+E-002+E-003"
+    },
+    {
+      "id": "E-005",
+      "factClass": "unknown",
+      "statement": "真实付费客户、价格、收入、成本、利润、回款周期和复购率未知",
+      "sourceRef": "organizations/ai-helmsman/enterprises/ai-digital-employee-control-center/profile.json"
+    }
+  ],
+  "customerArchitecture": {
+    "segments": [
+      "希望用AI系统化支持经营决策与执行协作的中小企业负责人",
+      "已经拥有具体业务目标但缺少可追溯跨职能执行系统的企业"
+    ],
+    "payer": "企业负责人或经授权的预算负责人",
+    "user": "企业负责人及其核心经营团队",
+    "decisionMaker": "企业负责人",
+    "beneficiary": "企业经营团队及被服务客户"
+  },
+  "valuePropositions": [
+    {
+      "segment": "需要系统化经营决策支持的中小企业负责人",
+      "problem": "企业分析、战略选择、品牌增长成交组织执行分散，事实与决策难以追溯",
+      "promise": "提供从企业分析、战略规划、商业模式到有界组织协作的可追溯经营决策闭环",
+      "evidenceRefs": [
+        "E-001",
+        "E-002",
+        "E-004",
+        "E-005"
+      ]
+    }
+  ],
+  "offerArchitecture": [
+    {
+      "offer": "AI掌舵官经营诊断与90天战略设计",
+      "deliverables": [
+        "企业分析与核心问题优先级",
+        "多方案战略规划与90天行动",
+        "商业模式变量、公式与验证实验"
+      ],
+      "deliveryMode": "授权资料诊断、候选交付、帝王决策和周期复盘",
+      "scopeBoundary": "不替企业自动定价、签约、投资、裁员或对外发布"
+    },
+    {
+      "offer": "AI数字员工控制中心跨组织经营协作",
+      "deliverables": [
+        "唯一主责组织判定",
+        "有边界的协作任务",
+        "证据、版本和结果回收"
+      ],
+      "deliveryMode": "在单一企业和任务边界内按需调用已成熟组织能力",
+      "scopeBoundary": "未达到operational的组织继续回退，不虚报正式能力"
+    }
+  ],
+  "revenueModel": [
+    {
+      "id": "project-service",
+      "stream": "经营诊断项目服务费候选",
+      "pricingVariable": "企业复杂度、资料完整度、交付范围和复盘周期",
+      "formula": "完成并验收的授权企业项目数 × 经真实验证的项目价格",
+      "value": null,
+      "status": "hypothesis",
+      "evidenceRefs": [
+        "E-005"
+      ]
+    },
+    {
+      "id": "continuous-review",
+      "stream": "持续经营复盘订阅费候选",
+      "pricingVariable": "复盘频率、组织范围、数据接入和服务深度",
+      "formula": "有效订阅企业数 × 经真实验证的周期价格",
+      "value": null,
+      "status": "hypothesis",
+      "evidenceRefs": [
+        "E-002",
+        "E-005"
+      ]
+    }
+  ],
+  "costModel": [
+    {
+      "id": "diagnosis-delivery",
+      "category": "单企业诊断与交付成本",
+      "costVariable": "资料整理、知识检索、分析、验证、修订和复盘工时",
+      "formula": "授权资料处理工时成本 + 分析与复盘工时成本",
+      "value": null,
+      "status": "unknown",
+      "evidenceRefs": [
+        "E-005"
+      ]
+    },
+    {
+      "id": "tools-maintenance",
+      "category": "工具与维护成本",
+      "costVariable": "模型、飞书、浏览器、存储、测试和流程维护使用量",
+      "formula": "实际工具费用 + 自动化维护工时成本",
+      "value": null,
+      "status": "unknown",
+      "evidenceRefs": [
+        "E-005"
+      ]
+    },
+    {
+      "id": "acquisition-success",
+      "category": "获客成交与客户成功成本",
+      "costVariable": "内容、咨询、成交、交付跟进和续费维护投入",
+      "formula": "获客投入 + 成交工时 + 客户成功工时",
+      "value": null,
+      "status": "unknown",
+      "evidenceRefs": [
+        "E-003",
+        "E-005"
+      ]
+    }
+  ],
+  "unitEconomics": {
+    "formula": "单企业贡献 = 实际回款 - 获客成交成本 - 诊断交付成本 - 工具维护成本 - 持续服务成本",
+    "variables": [
+      {
+        "id": "actual-collection",
+        "name": "实际回款",
+        "value": null,
+        "status": "unknown",
+        "evidenceRefs": [
+          "E-005"
+        ]
+      },
+      {
+        "id": "acquisition-conversion-cost",
+        "name": "单企业获客成交成本",
+        "value": null,
+        "status": "unknown",
+        "evidenceRefs": [
+          "E-003",
+          "E-005"
+        ]
+      },
+      {
+        "id": "delivery-maintenance-cost",
+        "name": "单企业交付与维护成本",
+        "value": null,
+        "status": "unknown",
+        "evidenceRefs": [
+          "E-005"
+        ]
+      },
+      {
+        "id": "repurchase-contribution",
+        "name": "续费与复购贡献",
+        "value": null,
+        "status": "unknown",
+        "evidenceRefs": [
+          "E-005"
+        ]
+      }
+    ],
+    "breakEvenCondition": "单企业贡献为正，回款周期覆盖交付现金支出，且质量与客户权益门禁持续通过"
+  },
+  "customerJourney": {
+    "acquisition": [
+      "通过真实经营问题内容、授权合作渠道或现有关系获得自愿咨询"
+    ],
+    "conversion": [
+      "先识别企业目标、资料、权限和预期成果，再提交范围与价值候选",
+      "价格和承诺由帝王或企业授权人批准"
+    ],
+    "delivery": [
+      "依次完成企业分析、战略规划和商业模式验证计划",
+      "按需通过控制中心调用成熟组织能力并回收结果"
+    ],
+    "retention": [
+      "按约定周期复盘指标、假设、风险和90天行动"
+    ],
+    "repurchase": [
+      "上一阶段完成验收且出现新的经营问题时，重新建立任务和授权范围"
+    ]
+  },
+  "keyResources": [
+    "AI掌舵官三个完整技能",
+    "控制中心唯一主责与有界协作系统",
+    "企业资料、知识凭证、证据、版本和批准记录",
+    "已成熟的公共技能与组织能力"
+  ],
+  "partners": [
+    "经企业授权的行业、财务、法律、税务和人力专业人员",
+    "具备明确授权和数据边界的企业内部负责人"
+  ],
+  "experiments": [
+    {
+      "id": "experiment-1-willingness-to-pay",
+      "assumptionRefs": [
+        "assumption-willingness-to-pay"
+      ],
+      "hypothesis": "目标企业愿意为可追溯的企业分析、90天战略和商业验证闭环支付或提供等价价值确认",
+      "method": "完成3次授权需求访谈，并选择1家企业进行小范围候选交付验证",
+      "metric": "明确问题强度、支付意愿、交付验收结果和实际交付工时",
+      "maximumDays": 45,
+      "maximumCost": "不新增付费工具，不产生未授权外部费用",
+      "stopConditions": [
+        "3次访谈均不存在明确经营决策问题",
+        "需要读取未授权敏感数据",
+        "出现客户权益或合规风险"
+      ],
+      "adjustConditions": [
+        "客户认可问题但不认可交付范围",
+        "交付工时明显高于可接受范围"
+      ],
+      "scaleConditions": [
+        "至少1家真实企业完成付费或等价价值验证",
+        "实际单企业贡献公式所需数据可以完整记录",
+        "交付质量与企业权益门禁持续通过"
+      ]
+    }
+  ],
+  "risks": [
+    "内部项目验证不能替代外部客户和付费验证",
+    "商业化数据缺失会使定价和单位经济长期停留在假设",
+    "同时扩大组织范围可能提高交付和维护成本"
+  ],
+  "unknowns": [
+    "目标客户的真实问题强度与支付意愿",
+    "项目制与订阅制的可接受价格",
+    "实际获客、成交、交付、维护和客户成功成本",
+    "回款周期、退款、税费、渠道分成和复购率",
+    "不同企业资料接入的合规与安全成本"
+  ],
+  "decisionsRequired": [
+    {
+      "decision": "是否批准开展3次授权需求访谈和1次小范围价值验证",
+      "owner": "emperor",
+      "executed": false
+    },
+    {
+      "decision": "是否在取得真实数据后比较项目制与订阅制",
+      "owner": "emperor",
+      "executed": false
+    }
+  ],
+  "createdAt": "2026-07-28T00:00:00.000Z",
+  "productStructure": [
+    {
+      "id": "offer-pilot",
+      "level": 1,
+      "name": "AI掌舵官经营诊断与最小商业验证",
+      "customerSegment": "希望用AI系统化支持经营决策与执行协作的中小企业负责人",
+      "dependsOn": [],
+      "upgradeTo": [
+        "offer-continuous-review"
+      ],
+      "deliverables": [
+        "企业分析与核心问题优先级",
+        "多方案战略规划与90天行动",
+        "商业模式变量、公式与验证实验"
+      ],
+      "entryCriteria": [
+        "企业问题、资料权限和目标边界明确"
+      ],
+      "scopeBoundary": "不替企业自动定价、签约、投资、裁员或对外发布",
+      "evidenceRefs": [
+        "E-001",
+        "E-002",
+        "E-004",
+        "E-005"
+      ]
+    },
+    {
+      "id": "offer-continuous-review",
+      "level": 2,
+      "name": "持续经营复盘与跨组织协作",
+      "customerSegment": "已经拥有具体业务目标但缺少可追溯跨职能执行系统的企业",
+      "dependsOn": [
+        "offer-pilot"
+      ],
+      "upgradeTo": [],
+      "deliverables": [
+        "唯一主责组织判定",
+        "有边界的协作任务",
+        "证据、版本和结果回收"
+      ],
+      "entryCriteria": [
+        "最小商业验证完成并形成真实经营证据"
+      ],
+      "scopeBoundary": "未达到operational的组织继续回退，不虚报正式能力",
+      "evidenceRefs": [
+        "E-001",
+        "E-002",
+        "E-005"
+      ]
+    }
+  ],
+  "profitModel": {
+    "revenueStreamRefs": [
+      "project-service",
+      "continuous-review"
+    ],
+    "costCategoryRefs": [
+      "diagnosis-delivery",
+      "tools-maintenance",
+      "acquisition-success"
+    ],
+    "unitEconomicsVariableRefs": [
+      "actual-collection",
+      "acquisition-conversion-cost",
+      "delivery-maintenance-cost",
+      "repurchase-contribution"
+    ],
+    "profitFormula": "单企业贡献 = 实际回款 - 获客成交成本 - 诊断交付成本 - 工具维护成本 - 持续服务成本",
+    "cashCollectionConstraint": "单企业贡献为正，回款周期覆盖交付现金支出，且质量与客户权益门禁持续通过",
+    "evidenceRefs": [
+      "E-003",
+      "E-005"
+    ]
+  },
+  "customerValueChain": [
+    {
+      "id": "stage-acquisition",
+      "stage": "acquisition",
+      "owner": "enterprise-owner-and-growth-owner",
+      "metric": "acquisition-evidence-complete",
+      "evidenceRequired": [
+        "acquisition-record"
+      ],
+      "exitCriteria": [
+        "acquisition-result-accepted"
+      ],
+      "nextStageId": "stage-conversion"
+    },
+    {
+      "id": "stage-conversion",
+      "stage": "conversion",
+      "owner": "enterprise-owner-and-growth-owner",
+      "metric": "conversion-evidence-complete",
+      "evidenceRequired": [
+        "conversion-record"
+      ],
+      "exitCriteria": [
+        "conversion-result-accepted"
+      ],
+      "nextStageId": "stage-delivery"
+    },
+    {
+      "id": "stage-delivery",
+      "stage": "delivery",
+      "owner": "enterprise-owner-and-ai-helmsman",
+      "metric": "delivery-evidence-complete",
+      "evidenceRequired": [
+        "delivery-record"
+      ],
+      "exitCriteria": [
+        "delivery-result-accepted"
+      ],
+      "nextStageId": "stage-value-realization"
+    },
+    {
+      "id": "stage-value-realization",
+      "stage": "value-realization",
+      "owner": "enterprise-owner-and-ai-helmsman",
+      "metric": "value-realization-evidence-complete",
+      "evidenceRequired": [
+        "customer-accepted-value-record"
+      ],
+      "exitCriteria": [
+        "value-realization-result-accepted"
+      ],
+      "nextStageId": "stage-retention"
+    },
+    {
+      "id": "stage-retention",
+      "stage": "retention",
+      "owner": "enterprise-owner-and-ai-helmsman",
+      "metric": "retention-evidence-complete",
+      "evidenceRequired": [
+        "retention-record"
+      ],
+      "exitCriteria": [
+        "retention-result-accepted"
+      ],
+      "nextStageId": "stage-repurchase"
+    },
+    {
+      "id": "stage-repurchase",
+      "stage": "repurchase",
+      "owner": "enterprise-owner-and-ai-helmsman",
+      "metric": "repurchase-evidence-complete",
+      "evidenceRequired": [
+        "repurchase-record"
+      ],
+      "exitCriteria": [
+        "repurchase-or-stop-decision-recorded"
+      ],
+      "nextStageId": ""
+    }
+  ],
+  "businessAssumptions": [
+    {
+      "id": "assumption-willingness-to-pay",
+      "statement": "目标企业愿意为可追溯的经营诊断、90天战略和商业验证闭环支付或提供等价价值确认",
+      "evidenceRefs": [
+        "E-003",
+        "E-005"
+      ],
+      "trigger": "取得真实付款或等价价值确认，并记录实际交付成本"
+    }
+  ],
+  "growthModel": {
+    "formula": "有效增长 = 合格线索 × 成交率 × 交付成功率 × 留存率 × 复购率",
+    "levers": [
+      {
+        "id": "lever-validated-referral",
+        "name": "交付验收后的客户转介绍",
+        "metric": "qualified_referral_count",
+        "preconditions": [
+          "首个项目完成验收",
+          "客户明确同意转介绍"
+        ],
+        "capacityConstraint": "每月新增项目不得超过已经验证的交付容量",
+        "experimentRef": "experiment-1-willingness-to-pay"
+      }
+    ],
+    "constraints": [
+      "不得用未验证投放放大未成立的单位经济",
+      "不得牺牲交付质量和客户权益"
+    ],
+    "stopConditions": [
+      "交付质量下降",
+      "单位经济为负",
+      "出现未授权数据或合规风险"
+    ]
+  }
+}

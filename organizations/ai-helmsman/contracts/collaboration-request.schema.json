@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "ai-helmsman/collaboration-request.schema.json",
+  "title": "AI掌舵官跨组织协作请求",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "schemaVersion",
+    "contractVersion",
+    "parentTaskId",
+    "requestId",
+    "enterpriseId",
+    "primaryOrganization",
+    "requestingOrganization",
+    "targetOrganization",
+    "requestedCapability",
+    "scope",
+    "evidenceRequirements",
+    "recursionDepth",
+    "constraints",
+    "status"
+  ],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "contractVersion": { "const": 1 },
+    "primaryOrganization": { "const": "ai-helmsman" },
+    "requestingOrganization": { "const": "ai-helmsman" },
+    "recursionDepth": { "const": 1 },
+    "status": { "const": "requested" }
+  }
+}

@@ -1,0 +1,124 @@
+{
+  "schemaVersion": 1,
+  "organizationId": "ai-helmsman",
+  "declaredRootStatus": "designing",
+  "acceptsFormalTasks": false,
+  "skills": [
+    {
+      "id": "enterprise-analysis",
+      "skillPath": "organizations/ai-helmsman/skills/enterprise-analysis/SKILL.md",
+      "workflowPath": "organizations/ai-helmsman/workflows/ENTERPRISE_ANALYSIS_PILOT.md",
+      "runtimePaths": [
+        "organizations/ai-helmsman/scripts/shared_runtime_adapter.mjs",
+        "organizations/ai-helmsman/scripts/enterprise_analysis_planner.mjs",
+        "organizations/ai-helmsman/scripts/enterprise_analysis_contract.mjs",
+        "organizations/ai-helmsman/scripts/enterprise_analysis_debugger.mjs",
+        "organizations/ai-helmsman/scripts/enterprise_analysis_runtime.mjs",
+        "organizations/ai-helmsman/scripts/enterprise_analysis_gate.mjs"
+      ],
+      "testPaths": [
+        "organizations/ai-helmsman/tests/enterprise_analysis.test.mjs",
+        "organizations/ai-helmsman/tests/enterprise_analysis_skill.test.mjs",
+        "organizations/ai-helmsman/tests/enterprise_analysis_runtime.test.mjs"
+      ],
+      "evidenceLevel": "internal_real",
+      "knownGaps": [
+        "现有真实试运行对象是内部项目AI数字员工控制中心，尚未完成外部企业资料的真实使用者验收",
+        "尚未获得帝王最终验收，不得提升为real_accepted或正式接单"
+      ],
+      "nextGate": "选择一个资料来源完整的真实企业项目，完成企业分析全流程、异常恢复、控制中心发布和帝王验收"
+    },
+    {
+      "id": "strategy-planning",
+      "skillPath": "organizations/ai-helmsman/skills/strategy-planning/SKILL.md",
+      "workflowPath": "organizations/ai-helmsman/workflows/STRATEGY_PLANNING_PILOT.md",
+      "runtimePaths": [
+        "organizations/ai-helmsman/scripts/shared_runtime_adapter.mjs",
+        "organizations/ai-helmsman/scripts/strategy_planning_planner.mjs",
+        "organizations/ai-helmsman/scripts/strategy_planning_contract.mjs",
+        "organizations/ai-helmsman/scripts/strategy_planning_debugger.mjs",
+        "organizations/ai-helmsman/scripts/strategy_planning_runtime.mjs",
+        "organizations/ai-helmsman/scripts/strategy_planning_gate.mjs"
+      ],
+      "testPaths": [
+        "organizations/ai-helmsman/tests/strategy_planning.test.mjs",
+        "organizations/ai-helmsman/tests/strategy_planning_runtime.test.mjs"
+      ],
+      "evidenceLevel": "internal_real",
+      "knownGaps": [
+        "现有真实试运行依赖内部项目企业分析结果，尚未完成外部企业决策者对方案取舍与90天行动的验收",
+        "尚未证明真实执行一个复盘周期后的指标回收和战略修订效果"
+      ],
+      "nextGate": "在真实企业项目中固定企业分析版本，完成战略方案比较、使用者选择、90天执行交接和一次复盘修订"
+    },
+    {
+      "id": "business-model",
+      "skillPath": "organizations/ai-helmsman/skills/business-model/SKILL.md",
+      "workflowPath": "organizations/ai-helmsman/workflows/BUSINESS_MODEL_PILOT.md",
+      "runtimePaths": [
+        "organizations/ai-helmsman/scripts/shared_runtime_adapter.mjs",
+        "organizations/ai-helmsman/scripts/business_model_planner.mjs",
+        "organizations/ai-helmsman/scripts/business_model_contract.mjs",
+        "organizations/ai-helmsman/scripts/business_model_debugger.mjs",
+        "organizations/ai-helmsman/scripts/business_model_runtime.mjs",
+        "organizations/ai-helmsman/scripts/business_model_gate.mjs"
+      ],
+      "testPaths": [
+        "organizations/ai-helmsman/tests/business_model.test.mjs",
+        "organizations/ai-helmsman/tests/business_model_runtime.test.mjs",
+        "organizations/ai-helmsman/tests/business_model_project_runtime.test.mjs",
+        "organizations/ai-helmsman/tests/business_model_actual_candidate.test.mjs",
+        "organizations/ai-helmsman/tests/helmsman_pipeline.test.mjs"
+      ],
+      "evidenceLevel": "simulation",
+      "knownGaps": [
+        "客户、价格、成本、转化、交付、回款和复购数据仍是未知项，尚未经过真实外部商业实验",
+        "尚未获得真实企业使用者和帝王专项验收，证据等级不得提升为 internal_real 或 real_accepted"
+      ],
+      "nextGate": "选择一个获得授权的真实企业项目，完成客户访谈、价格成本记录、交付验收、价值实现、复购观察和一次暂停恢复修订，再由帝王专项验收"
+    }
+  ],
+  "fast": {
+    "boundedDispatch": true,
+    "reusesSharedRuntime": true,
+    "evidencePaths": [
+      "organizations/ai-helmsman/scripts/collaboration_contract.mjs",
+      "organizations/ai-helmsman/tests/knowledge_and_collaboration.test.mjs",
+      "organizations/ai-helmsman/scripts/shared_runtime_adapter.mjs",
+      "organizations/ai-helmsman/scripts/enterprise_analysis_runtime.mjs",
+      "organizations/ai-helmsman/scripts/strategy_planning_runtime.mjs",
+      "organizations/ai-helmsman/scripts/business_model_runtime.mjs"
+    ]
+  },
+  "accurate": {
+    "separatesEvidence": true,
+    "locksExactDependencies": true,
+    "hasQualityGate": true,
+    "evidencePaths": [
+      "organizations/ai-helmsman/scripts/enterprise_analysis_contract.mjs",
+      "organizations/ai-helmsman/scripts/strategy_planning_contract.mjs",
+      "organizations/ai-helmsman/scripts/business_model_contract.mjs",
+      "organizations/ai-helmsman/tests/helmsman_pipeline.test.mjs"
+    ]
+  },
+  "stable": {
+    "persistsState": true,
+    "idempotentResume": true,
+    "boundedRetry": true,
+    "evidencePaths": [
+      "organizations/ai-helmsman/scripts/shared_runtime_adapter.mjs",
+      "organizations/ai-helmsman/scripts/enterprise_analysis_runtime.mjs",
+      "organizations/ai-helmsman/scripts/strategy_planning_runtime.mjs",
+      "organizations/ai-helmsman/scripts/business_model_runtime.mjs",
+      "organizations/ai-helmsman/tests/enterprise_analysis_runtime.test.mjs",
+      "organizations/ai-helmsman/tests/strategy_planning_runtime.test.mjs",
+      "organizations/ai-helmsman/tests/business_model_runtime.test.mjs"
+    ]
+  },
+  "knownGaps": [
+    "三个技能虽均具备项目规划、独立调试、暂停恢复和发布请求，但外部真实企业三技能闭环尚未完成",
+    "商业模式的客户、价格、成本、转化、交付、回款和复购仍缺真实实验数据",
+    "三个技能均未获得帝王最终验收，根级状态必须保持 designing 与 acceptsFormalTasks=false"
+  ],
+  "nextOrganizationGate": "在一个获得授权的真实企业项目中完成企业分析、战略规划、商业模式、控制中心发布、暂停恢复修订和使用者验收，再由帝王评估根级状态升级"
+}

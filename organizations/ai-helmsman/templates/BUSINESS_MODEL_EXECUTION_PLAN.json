@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "capabilityId": "business-model",
+  "enterpriseId": "replace-with-enterprise-id",
+  "businessProjectId": "20260730-001-replace-with-project",
+  "taskId": "20260730-001-business-model",
+  "planVersion": 1,
+  "objective": "设计并验证最小商业闭环",
+  "businessModelCoverage": [
+    "product-structure",
+    "profit-model",
+    "customer-value-chain",
+    "growth-model"
+  ],
+  "artifactBindings": [
+    {
+      "artifactId": "enterprise-analysis",
+      "version": 1,
+      "sha256": "replace-with-64-character-sha256",
+      "sourceOrganizationId": "ai-helmsman"
+    },
+    {
+      "artifactId": "strategy-planning",
+      "version": 1,
+      "sha256": "replace-with-64-character-sha256",
+      "sourceOrganizationId": "ai-helmsman"
+    }
+  ],
+  "evidenceBindings": [],
+  "requiredInputs": [
+    "published-enterprise-analysis-version-and-sha256",
+    "published-strategy-planning-version-and-sha256",
+    "enterprise-owner-business-objective",
+    "customer-offer-revenue-cost-and-capacity-evidence",
+    "knowledge-preflight-credential"
+  ],
+  "stages": [],
+  "reviewCheckpoints": [],
+  "stopConditions": [],
+  "outputRoot": "business-projects/<enterpriseId>/<businessProjectId>/organizations/ai-helmsman/tasks/<taskId>",
+  "createdAt": "2026-07-30T00:00:00.000Z"
+}

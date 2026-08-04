@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "requestId": "20260728-004-helmsman-pipeline",
+  "generatedAt": "2026-07-28T06:47:32.055Z",
+  "status": "matched",
+  "taskSummary": "AI???????????",
+  "capabilityId": "ai-helmsman.pipeline",
+  "spaces": [
+    {
+      "name": "老雷知识库",
+      "spaceId": "7647794184725335001"
+    },
+    {
+      "name": "老雷课件知识库",
+      "spaceId": "7647469067716152569"
+    },
+    {
+      "name": "新媒体部",
+      "spaceId": "7623626356504530125"
+    },
+    {
+      "name": "产品部门",
+      "spaceId": "7667049734346902504"
+    }
+  ],
+  "queries": [
+    "AI???????????"
+  ],
+  "sources": [
+    {
+      "spaceName": "老雷知识库",
+      "title": "AI讲解（雷总课件）2025.12.18（最新）.txt",
+      "url": "https://bvvbkaq8l6.feishu.cn/wiki/UFsBwltlIiBkgSkS4Qlcgy7GnWb",
+      "token": "UFsBwltlIiBkgSkS4Qlcgy7GnWb",
+      "docType": "file",
+      "excerpt": "幻灯片 1:\r\n\r\nAI赋能家庭.幸福经营\r\n老雷\r\nLAO LEI\r\n\r\n创客匠人陪跑事业部领军人\r\n\r\n幻灯片 2:\r\n老雷\r\n· 结果式付费陪跑领军人\r\n· 创客匠人陪跑事业部总经理\r\n· AI 应用变现架构师\r\n\r\n幻灯片 3:\r\n爱多VCD创始人 · 胡志标\r\n俏江南、麻六记创始人 · 张兰\r\n上市企业当当网创始人 · 李国庆\r\n新潮传媒集团创始人 · 张继学\r\n张琦老师\r\n\r\n幻灯片 4:\r\n创始人IP5000人峰会\r\n\r\n幻灯片 5:\r\n我眼中的德艳老师\r\n\r\n幻灯片 6:\r\n身份背书\r\n疗愈\r\n正能量\r\n带你看世界\r\n开天眼\r\n有使命\r\n真实\r\n超级专业\r\n给你精神补给\r\n观点独立\r\n有趣\r\n接地气\r\n高认知\r\n放心\r\n赛道深耕\r\n温暖\r\n勤奋\r\n有颜\r\n靠谱\r\n\r\n幻灯片 7:\r\nAI赋能家庭.幸福经营\r\n\r\n幻灯片 8:\r\n 一. AI人类第四次科技革命\r\n\r\n幻灯片 9:\r\n一. AI人类第四次科技革命\r\n\r\n幻灯片 10:\r\n蒸汽机革命\r\n使人类进入了机械化时代\r\n\r\n幻灯片 11:\r\n电力革命\r\n使人类进入电气化时代\r\n\r\n幻灯片 12:\r\n互联网革命\r\n使人类进入信息化时代\r\n\r\n幻灯片 13:\r\n人工智能革命\r\n使人类进入智能化时代\r\n\r\n幻灯片 14:\r\n每次科技革命\r\n都会给人类带来财富指数型增长\r\n每次科技革命\r\n都会迎来新的一轮财富分配\r\n\r\n幻灯片 15:\r\n未来将是\r\n善用AI的人淘汰\r\n不会用AI的人\r\n\r\n幻灯片 16:\r\n假如AI\r\n具备了\r\n情感\r\n\r\n幻灯片 17:\r\n认识AI  善用AI\r\n你将无所不能\r\n\r\n幻灯片 18:\r\n未来所有的行业都值得\r\n用AI来重做一遍\r\n\r\n幻灯片 19:\r\n为什么要学AI？\r\n\r\n\r\n幻灯片 20:\r\n你想不想写一个智能体\r\n陪你孩子成长？\r\n\r\n幻灯片 21:\r\n你想不想2小时的工作\r\n10分钟完成？\r\n\r\n幻灯片 22:\r\n你想不想利用AI撬动事业的\r\n十倍增长？\r\n\r\n幻灯片 23:\r\n你想不想克隆一个德艳思维智能体\r\n24小时协助你决策？\r\n\r\n幻灯片 24:\r\n不会用AI的人 , 只能用时间硬拼\r\n会用AI的人 , 用智慧放大自己\r\n\r\n幻灯片 25:\r\nAI × 女性智慧的经营\r\n\r\n\r\n省力\r\n写文案、做计划、提炼思路，比你快十倍\r\n\r\n\r\n增值\r\n你的气质、你的表达，AI帮你放大\r\n\r\n\r\n可复制\r\n再忙也能保持优雅和节奏感\r\n\r\n幻灯片 26:\r\n\r\n幻灯片 27:\r\n“优雅不是慢下来，从容中游刃有余”\r\n“AI让智慧有了‘复制按钮’”\r\n\r\n幻灯片 28:\r\nAI+运用场景=才有价值\r\n\r\n幻灯片 29:\r\n\r\n4大常运用场景\r\n\r\nAI撬动朋友圈经营\r\n\r\nAI撬动短视频/直播人设经营\r\n\r\nAI撬动事业与家庭的的经营\r\n\r\nAI撬动自我情绪与关系的经营\r\n\r\n幻灯片 30:\r\n别人刷朋友圈时记得的是别人，永远不会记得你。\r\n“如果朋友圈没有定义你，别人就会替你定义。”\r\n\r\n\r\n1.朋友圈的人设经营\r\n\r\n幻灯片 31:\r\n\r\n幻灯片 32:\r\n好的朋友圈=自动提款机\r\n（万能公式：角色+背景+任务+要求+示例）\r\n行动：今晚就发一条 AI 生成的“早安文案”，让大家重新认识你。\r\n\r\n幻灯片 33:\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n发问表达\r\n技巧\r\n1.多用语音，少用文字\r\n防止AI“节约算力”偷懒\r\n2.我是小白\r\n放掉专家执念，换来边界突破\r\n3.既要又要还要 / 我不要\r\n目标贪心 + 边界清晰，逼出创造力\r\n4.不怕混乱"
+    }
+  ],
+  "unreadCandidates": [
+    {
+      "title": "全球创始人IP+AI万人高峰论坛",
+      "reason": "empty_content"
+    },
+    {
+      "title": "老雷官媒链接",
+      "reason": "empty_content"
+    }
+  ],
+  "degradedReason": ""
+}
