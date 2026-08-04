@@ -69,4 +69,3 @@ function result(failures) {
   unique.sort((left, right) => left.path.localeCompare(right.path) || left.code.localeCompare(right.code));
   return deepFreeze({ ok: unique.length === 0, failures: unique });
 }
-

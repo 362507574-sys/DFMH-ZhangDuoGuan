@@ -43,4 +43,3 @@ export function checkBeforeBusinessModel({
 export function checkBusinessModelCandidate(input = {}) {
   return validateBusinessModelCandidate(input);
 }
-

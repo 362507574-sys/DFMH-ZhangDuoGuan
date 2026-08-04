@@ -37,4 +37,3 @@ export function checkBeforeStrategyPlanning({
 export function checkStrategyCandidate(input = {}) {
   return validateStrategyPlanningCandidate(input);
 }
-

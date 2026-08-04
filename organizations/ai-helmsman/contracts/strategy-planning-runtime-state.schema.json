@@ -70,5 +70,3 @@
     "updatedAt": { "type": "string", "format": "date-time" }
   }
 }
-
-

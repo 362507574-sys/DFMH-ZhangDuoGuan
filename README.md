@@ -26,25 +26,25 @@
 ## 使用方法
 
 1. 安装 Node.js 20 或更高版本。
-2. 将任务资料放在独立项目目录中，不要提交客户隐私、密钥或真实业务数据到仓库。
-3. 阅读 `organizations/ai-helmsman/AGENTS.md`、`WORKFLOWS.md` 和对应技能的 `SKILL.md`。
-4. 执行 `npm test` 检查仓库结构、技能完整性、本地依赖和敏感信息。
+2. 将任务资料放在仓库外的独立任务目录中，不要提交客户隐私、密钥或真实业务数据到公开仓库。
+3. 先阅读根目录 `AGENTS.md`、`QUICKSTART.md`、`PUBLIC_PACKAGE_CONTRACT.json`，再读取 `organizations/ai-helmsman/AGENTS.md` 和三个技能的 `SKILL.md`。
+4. 执行 `npm test` 检查仓库结构、公开执行契约、本地依赖和敏感信息。
 
 ## 目录
 
 - `organizations/ai-helmsman/skills/`：三个核心技能。
 - `organizations/ai-helmsman/workflows/`：技能对应业务流程。
-- `organizations/ai-helmsman/scripts/`：确定性运行、校验和恢复组件。
+- `organizations/ai-helmsman/scripts/`：确定性运行与校验组件。
 - `organizations/ai-helmsman/templates/`：候选、计划和交付模板。
-- `control-center/registries/`：本组织的精简权威登记与输出目录。
+- `control-center/registries/`：本组织的精简登记与输出目录。
 - `shared/`：技能引用的公共只读标准。
 
 ## 控制中心边界
 
-本仓库是可独立分发的组织能力包，不包含飞书机器人凭据、客户资料、历史任务、临时文件或总控私有配置。公共海报和淘宝电商套图能力仍由外部控制中心按登记表调用，不在本仓库重复打包。
+本仓库是可独立分发的单组织能力包，不包含飞书机器人凭据、客户资料、历史任务、临时文件或总控私有配置。它不等于完整AI数字员工控制中心，也不自动具备五组织编排、飞书调度、跨项目资产共享或私有知识库能力。公共海报和淘宝电商套图能力仍由外部控制中心按登记表调用，不在本仓库重复打包。
 
 ## 发布信息
 
-- 生成时间：2026-08-04T03:09:13.804Z
-- 默认仓库可见性：private
+- 生成时间：2026-08-04T04:34:57.071Z
+- GitHub 仓库可见性：public
 - 许可：保留所有权利，未经授权不得转售或公开再分发。

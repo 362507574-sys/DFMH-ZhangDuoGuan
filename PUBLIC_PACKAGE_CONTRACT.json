@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "repoName": "DFMH-ZhangDuoGuan",
+  "displayName": "AI掌舵官",
+  "kind": "organization-package",
+  "maturity": "designing",
+  "fullSystemEquivalent": false,
+  "simulationLevel": "standalone-contract",
+  "primaryEntrypoints": [
+    "organizations/ai-helmsman/AGENTS.md",
+    "organizations/ai-helmsman/skills/enterprise-analysis/SKILL.md",
+    "organizations/ai-helmsman/skills/strategy-planning/SKILL.md",
+    "organizations/ai-helmsman/skills/business-model/SKILL.md"
+  ],
+  "capabilities": [
+    "企业分析：企业现状、行业环境、竞争情况、优势短板、核心问题",
+    "战略规划：企业方向、发展路径、资源配置、90天行动计划",
+    "商业模式：产品结构、盈利模式、客户价值链、增长模型"
+  ],
+  "externalRequirements": [
+    "Node.js 20 或更高版本，以及能够读取本地项目文件的 AI 工具。",
+    "使用者提供的真实企业、项目和任务资料；本仓库不附带任何客户数据。",
+    "需要最新市场、法规、平台或竞品事实时，由使用者环境提供可访问的网络检索能力。"
+  ],
+  "excludedPrivateDirectories": [
+    "temp",
+    "outputs",
+    "enterprises",
+    "issues",
+    "fixtures",
+    "tasks"
+  ],
+  "maxRelativePathLength": 120,
+  "acceptanceCommand": "npm test"
+}

@@ -5,17 +5,22 @@
   "displayName": "AI掌舵官",
   "status": "designing",
   "acceptsFormalTasks": false,
-  "generatedAt": "2026-08-04T03:09:13.809Z",
+  "generatedAt": "2026-08-04T04:34:57.100Z",
   "files": [
     {
       "relativePath": ".dfmh-generated-package",
       "bytes": 25,
-      "sha256": "3139bd0ff999ead9e58e042d04e6559215e38643b30f5b18fda6d44bf283af0d"
+      "sha256": "c84430820508132640d94c1f3cdd1233fa44465be4ba8788c73aadd24718d9dc"
     },
     {
       "relativePath": ".gitignore",
       "bytes": 102,
       "sha256": "42e5ab13aad1238474461ddb8281ec5371596547ab340f141cd0c6f648e2a05e"
+    },
+    {
+      "relativePath": "AGENTS.md",
+      "bytes": 2280,
+      "sha256": "6351d6050c48314b7058a9a78fd8d17bb673b4f40616f351417a5397b41e5e7a"
     },
     {
       "relativePath": "control-center/registries/organization-output-standard.json",
@@ -26,6 +31,16 @@
       "relativePath": "control-center/registries/organizations.json",
       "bytes": 728,
       "sha256": "e48f34e27d909639c17d7b2a2601390375fb30f2a372a26c1cbb7bb1b9090a1b"
+    },
+    {
+      "relativePath": "examples/DELIVERABLE_CHECKLIST.md",
+      "bytes": 884,
+      "sha256": "8b20b4f9255df85aef3aeef899e37bfa20167da37286b47c5e2484f3323256cf"
+    },
+    {
+      "relativePath": "examples/REQUEST.md",
+      "bytes": 1005,
+      "sha256": "7969e9418e3a1e392d1c251a8de4f7f3c7034bd6e125673b44140400bc55239b"
     },
     {
       "relativePath": "LICENSE.md",
@@ -54,13 +69,13 @@
     },
     {
       "relativePath": "organizations/ai-helmsman/contracts/business-model-execution-plan.schema.json",
-      "bytes": 1448,
-      "sha256": "7b57eb22c6a72a7882135cd68b49296831c371aaa12bb184345fb878dc88dfad"
+      "bytes": 1444,
+      "sha256": "f9058280a3dcffbe2c61e78ad16932346ffb4fe6ce3bd36e8cf097b2d9621995"
     },
     {
       "relativePath": "organizations/ai-helmsman/contracts/business-model-publication-request.schema.json",
-      "bytes": 1427,
-      "sha256": "f5fbaea06a421b8a02ac50078d7fa3885fcc2bc6d7e5402aa946da854a847aa7"
+      "bytes": 1423,
+      "sha256": "b0f6c5109dd3392cf65de9195637016b70346e459c07df8e5cd71d0cd1d7353d"
     },
     {
       "relativePath": "organizations/ai-helmsman/contracts/business-model-runtime-state.schema.json",
@@ -104,8 +119,8 @@
     },
     {
       "relativePath": "organizations/ai-helmsman/contracts/helmsman-pipeline-candidate.schema.json",
-      "bytes": 1018,
-      "sha256": "9aceb4908f62fce095d329ca37160b849f3228d1bf38bfcecfe1c71007628600"
+      "bytes": 1017,
+      "sha256": "93c91d0b7adc7aea87a97f69ee92eea631a30749bfaae9fc138c7b8e96041072"
     },
     {
       "relativePath": "organizations/ai-helmsman/contracts/organization-task.schema.json",
@@ -119,18 +134,18 @@
     },
     {
       "relativePath": "organizations/ai-helmsman/contracts/strategy-planning-execution-plan.schema.json",
-      "bytes": 1428,
-      "sha256": "d6d4fbd82cf6abe8fea03f9a1a6f0adff1051c0060ada149ea4630f9408fd4b8"
+      "bytes": 1426,
+      "sha256": "ed36860c83ddf54c2766ce734e4182f58a2d3379200776a9528dba2a48bd00dc"
     },
     {
       "relativePath": "organizations/ai-helmsman/contracts/strategy-planning-publication-request.schema.json",
-      "bytes": 1417,
-      "sha256": "323b5dbd4365fcd03a469253e4026a3bb96b745a99bbd458204de0c09ef2059b"
+      "bytes": 1415,
+      "sha256": "bf29d9b980c474ad6596df5ec45630db8e466e92d1526d66114ef1b98a4fb1cd"
     },
     {
       "relativePath": "organizations/ai-helmsman/contracts/strategy-planning-runtime-state.schema.json",
-      "bytes": 2067,
-      "sha256": "2fd19a2472fe8eec2e2839a61368a551c069f7dc3bfc99acd17dfebe995f4eee"
+      "bytes": 2065,
+      "sha256": "d025e1cc78352359e3952978ed3208dcc7ea1dc69759ad41b5d9598ff9092f1a"
     },
     {
       "relativePath": "organizations/ai-helmsman/DECISIONS.md",
@@ -179,8 +194,8 @@
     },
     {
       "relativePath": "organizations/ai-helmsman/scripts/business_model_gate.mjs",
-      "bytes": 1847,
-      "sha256": "7e752cc891a7ab5f2a8beb6f3e18f7a55e35c7ef37d202277479c04854094285"
+      "bytes": 1846,
+      "sha256": "8d1bf3c79fe756753cbff815f11f7f5ed47205ba96f838397f8a3bafb8d4010e"
     },
     {
       "relativePath": "organizations/ai-helmsman/scripts/business_model_planner.mjs",
@@ -229,8 +244,8 @@
     },
     {
       "relativePath": "organizations/ai-helmsman/scripts/helmsman_pipeline_contract.mjs",
-      "bytes": 3743,
-      "sha256": "d058ad3959621c2ac6c43357772ebc3a3e1b364658ec5301ddb132abf5863759"
+      "bytes": 3742,
+      "sha256": "fc0874ea47fe123dd8ab7c53c944103d61609cb13419d55e28605d29ad0055e7"
     },
     {
       "relativePath": "organizations/ai-helmsman/scripts/knowledge_preflight_adapter.mjs",
@@ -274,8 +289,8 @@
     },
     {
       "relativePath": "organizations/ai-helmsman/scripts/strategy_planning_gate.mjs",
-      "bytes": 1714,
-      "sha256": "3a3aba70918151e24ea378ee4b7af741b66cfc2993e853c44466e3488a92b861"
+      "bytes": 1713,
+      "sha256": "7b443d9efd8c676f53f597c460302c7b78713c262a24eacd8870947339721d1c"
     },
     {
       "relativePath": "organizations/ai-helmsman/scripts/strategy_planning_planner.mjs",
@@ -294,8 +309,8 @@
     },
     {
       "relativePath": "organizations/ai-helmsman/skills/business-model/agents/openai.yaml",
-      "bytes": 274,
-      "sha256": "0ac5927a0fabc995ac5e6c1957b20be77fe818a6895dc3c82a00818555530def"
+      "bytes": 270,
+      "sha256": "9878258f958dec9f457a165ec6f50524525538db9aae12cb916943f195b0f7c6"
     },
     {
       "relativePath": "organizations/ai-helmsman/skills/business-model/SKILL.md",
@@ -319,98 +334,13 @@
     },
     {
       "relativePath": "organizations/ai-helmsman/skills/strategy-planning/agents/openai.yaml",
-      "bytes": 270,
-      "sha256": "682dbc7023e10849c4a2969dba062be7a3dcc272e2f9263ba1a688c24e0d9cad"
+      "bytes": 266,
+      "sha256": "4e0934cf834ef591878a815f695c88c521bd9c09704d76b922acf04cf30ecbc2"
     },
     {
       "relativePath": "organizations/ai-helmsman/skills/strategy-planning/SKILL.md",
       "bytes": 7733,
       "sha256": "2e62778a033394edfa232bb87a9f707c5b60790e705c66ed710e16f39225e2b2"
-    },
-    {
-      "relativePath": "organizations/ai-helmsman/tasks/ai-digital-employee-control-center/20260728-001-control-center-analysis/candidates/enterprise-analysis-v1.json",
-      "bytes": 9132,
-      "sha256": "9a88130484ac499813083b9d567084267caf77121c2410984483400d3ef7d9eb"
-    },
-    {
-      "relativePath": "organizations/ai-helmsman/tasks/ai-digital-employee-control-center/20260728-001-control-center-analysis/decision-brief.md",
-      "bytes": 1241,
-      "sha256": "ea8c034efd82313e32e97dc013632ebfe06855bcaba59849ec0f70b7052310bb"
-    },
-    {
-      "relativePath": "organizations/ai-helmsman/tasks/ai-digital-employee-control-center/20260728-001-control-center-analysis/evidence/knowledge_context.json",
-      "bytes": 1040,
-      "sha256": "da7dae46098064b16e89078d4f1b32490d79672cd807e42b18c15517e1c2d815"
-    },
-    {
-      "relativePath": "organizations/ai-helmsman/tasks/ai-digital-employee-control-center/20260728-001-control-center-analysis/task.json",
-      "bytes": 1227,
-      "sha256": "b6ad8ae15ce95aeeb0b2f211e19aa241df338d42b8d518981c1441eb4dd3788d"
-    },
-    {
-      "relativePath": "organizations/ai-helmsman/tasks/ai-digital-employee-control-center/20260728-002-helmsman-strategy/candidates/strategy-planning-v1.json",
-      "bytes": 12818,
-      "sha256": "4b11813b683d190b38543bc4cdd2877165b09539b25f27f136d1a15d16f82ccf"
-    },
-    {
-      "relativePath": "organizations/ai-helmsman/tasks/ai-digital-employee-control-center/20260728-002-helmsman-strategy/decision-brief.md",
-      "bytes": 813,
-      "sha256": "a9da6b2449d399e055e5167e76f8e20e52b6ab0f50f6707b49b2236089544fa9"
-    },
-    {
-      "relativePath": "organizations/ai-helmsman/tasks/ai-digital-employee-control-center/20260728-002-helmsman-strategy/evidence/knowledge_context.json",
-      "bytes": 12880,
-      "sha256": "a64e0f1232d546b91b16553a12d696b8beaffcd7595cf02234724b8851211dff"
-    },
-    {
-      "relativePath": "organizations/ai-helmsman/tasks/ai-digital-employee-control-center/20260728-002-helmsman-strategy/task.json",
-      "bytes": 1332,
-      "sha256": "74c480d9a8626f29c3dfeed1e7226df09fa0cb4d31ce4885d84dc5f97b11d13a"
-    },
-    {
-      "relativePath": "organizations/ai-helmsman/tasks/ai-digital-employee-control-center/20260728-003-helmsman-business-model/candidates/business-model-v1.json",
-      "bytes": 15876,
-      "sha256": "956d626744f13fbedeb369591dcae821a64504587bfd679346c3a35862db1812"
-    },
-    {
-      "relativePath": "organizations/ai-helmsman/tasks/ai-digital-employee-control-center/20260728-003-helmsman-business-model/decision-brief.md",
-      "bytes": 845,
-      "sha256": "18a213519685e9d102351b8f74a08eb15e1ff193cb7c6ad7a684f1a12186234a"
-    },
-    {
-      "relativePath": "organizations/ai-helmsman/tasks/ai-digital-employee-control-center/20260728-003-helmsman-business-model/evidence/knowledge_context.json",
-      "bytes": 12880,
-      "sha256": "399e6fa764c86f21e5e5ca1f80fade929bb3c714ae7566d377896d9658b4c3d8"
-    },
-    {
-      "relativePath": "organizations/ai-helmsman/tasks/ai-digital-employee-control-center/20260728-003-helmsman-business-model/task.json",
-      "bytes": 1409,
-      "sha256": "3820e50eca459ef86fd608ab3ae99f66773ebafc088cf6ed76ec6747bcd4ae32"
-    },
-    {
-      "relativePath": "organizations/ai-helmsman/tasks/ai-digital-employee-control-center/20260728-004-helmsman-pipeline/candidates/helmsman-pipeline-v1.json",
-      "bytes": 1932,
-      "sha256": "f96dfc4d02b858d8d427c567a9f20a37e81f396e3920b586bc6a0684a76e1b34"
-    },
-    {
-      "relativePath": "organizations/ai-helmsman/tasks/ai-digital-employee-control-center/20260728-004-helmsman-pipeline/decision-brief.md",
-      "bytes": 970,
-      "sha256": "1a3067951cf465b20a455ff7a881d5e5c106a7b66a2988023adb360ff518dc7e"
-    },
-    {
-      "relativePath": "organizations/ai-helmsman/tasks/ai-digital-employee-control-center/20260728-004-helmsman-pipeline/evidence/knowledge_context.json",
-      "bytes": 4774,
-      "sha256": "c3843e1474aec3de6244407a8b7c547e377eb83d1877d9e7ddf1c972b56dbbc9"
-    },
-    {
-      "relativePath": "organizations/ai-helmsman/tasks/ai-digital-employee-control-center/20260728-004-helmsman-pipeline/task.json",
-      "bytes": 576,
-      "sha256": "08b1804d172d9671926a298347bd805345bf9f571985bcdc25f18a85b70254d7"
-    },
-    {
-      "relativePath": "organizations/ai-helmsman/tasks/README.md",
-      "bytes": 210,
-      "sha256": "5adf37de03820c1fe691e06bccd284abee5d0ca84700958a76a94fd510ccdc47"
     },
     {
       "relativePath": "organizations/ai-helmsman/templates/BUSINESS_MODEL_CANDIDATE.json",
@@ -439,8 +369,8 @@
     },
     {
       "relativePath": "organizations/ai-helmsman/templates/HELMSMAN_PIPELINE_CANDIDATE.json",
-      "bytes": 1214,
-      "sha256": "1cbe2e22d7d41dbde781a50930c1d55358527613bd7f51994ef9f6537ed3daf6"
+      "bytes": 1213,
+      "sha256": "084da4696e1a28a00cba0ff0c5f25d564f5a0d0dc0ed7a7ea997351e3fecbb8f"
     },
     {
       "relativePath": "organizations/ai-helmsman/templates/ORGANIZATION_TASK.json",
@@ -456,91 +386,6 @@
       "relativePath": "organizations/ai-helmsman/templates/STRATEGY_PLANNING_EXECUTION_PLAN.json",
       "bytes": 1123,
       "sha256": "af01add51a13f6f78fdb3db300b7da2949505dcaab94d3a54d2dfd4a67780d46"
-    },
-    {
-      "relativePath": "organizations/ai-helmsman/tests/business_model_actual_candidate.test.mjs",
-      "bytes": 2648,
-      "sha256": "b7b1c9ccbf87945e984e2c80013ef50ddf5659d43bbf0604d68f96d749351918"
-    },
-    {
-      "relativePath": "organizations/ai-helmsman/tests/business_model_project_runtime.test.mjs",
-      "bytes": 20848,
-      "sha256": "970682bcc50b3baec1eb4dbafb71c1a1053b2ceb25de8dde6395721c23ab041c"
-    },
-    {
-      "relativePath": "organizations/ai-helmsman/tests/business_model_runtime.test.mjs",
-      "bytes": 5975,
-      "sha256": "01589b8b66605e31b590e45f1b95c09fa39697df0d27b39308f90fa599d2ab7b"
-    },
-    {
-      "relativePath": "organizations/ai-helmsman/tests/business_model.test.mjs",
-      "bytes": 14380,
-      "sha256": "3d51ecfe22e4f45baa9adbf6f474de7486bee28f31a29f88182e3e2395efbe49"
-    },
-    {
-      "relativePath": "organizations/ai-helmsman/tests/enterprise_analysis_runtime.test.mjs",
-      "bytes": 30016,
-      "sha256": "a797d4a06f6ef3050df60dd8ce4675091c863ffab2d9c40f00102ca64cc25603"
-    },
-    {
-      "relativePath": "organizations/ai-helmsman/tests/enterprise_analysis_skill.test.mjs",
-      "bytes": 2130,
-      "sha256": "9bb1114736e3cf94bca8d8eaaf753ebd2cce2ee1855e6632562ee175a16817ad"
-    },
-    {
-      "relativePath": "organizations/ai-helmsman/tests/enterprise_analysis.test.mjs",
-      "bytes": 4611,
-      "sha256": "5a1e90c91028c079499ca3fb9db48418fdd46a70a5bf007f6746c53360de120d"
-    },
-    {
-      "relativePath": "organizations/ai-helmsman/tests/enterprise_and_task.test.mjs",
-      "bytes": 4412,
-      "sha256": "67dbe00b640d9945e6d808127d2f06dda3703c2f5a5fce3747c342ff4b61c74e"
-    },
-    {
-      "relativePath": "organizations/ai-helmsman/tests/foundation_contract.test.mjs",
-      "bytes": 3284,
-      "sha256": "f45ed321fbd3e99ab3f71910920789bb5f366a4ad6597402e0fa151c421cb44a"
-    },
-    {
-      "relativePath": "organizations/ai-helmsman/tests/helmsman_pipeline.test.mjs",
-      "bytes": 4576,
-      "sha256": "720df41b74638dee4b9907f599396854748b3a70b356a6308fe2417faa7c6d5a"
-    },
-    {
-      "relativePath": "organizations/ai-helmsman/tests/helpers.mjs",
-      "bytes": 6898,
-      "sha256": "9667a42304cd5871b5e3200d3e646e08e606e17e02d6dcac45d5fa4398fd0257"
-    },
-    {
-      "relativePath": "organizations/ai-helmsman/tests/knowledge_and_collaboration.test.mjs",
-      "bytes": 4378,
-      "sha256": "1a6b1d6cd64a4a5f93f33bf8f75662472497f613bbb3d8e0d0632c4e5b6e6cf6"
-    },
-    {
-      "relativePath": "organizations/ai-helmsman/tests/organization_config.test.mjs",
-      "bytes": 1947,
-      "sha256": "e04abd2deda6477db1d0068a6b6275592c88212976dfeeef149e9ccba5f3dd1e"
-    },
-    {
-      "relativePath": "organizations/ai-helmsman/tests/organization_quality_profile.test.mjs",
-      "bytes": 6156,
-      "sha256": "c6e1be45082eb70b6868006271fc5aa5bfc962fdd4785f35612e06d069e321ea"
-    },
-    {
-      "relativePath": "organizations/ai-helmsman/tests/organization_self_check.test.mjs",
-      "bytes": 475,
-      "sha256": "86e09dd02c8519148d50f7a35cbc6986a7062bc34099730abde71c9dadc2f158"
-    },
-    {
-      "relativePath": "organizations/ai-helmsman/tests/strategy_planning_runtime.test.mjs",
-      "bytes": 22631,
-      "sha256": "077a0db4284fc96c7c8edb7e74315f5c5f525b042532b7152fee6f624f0fb7ed"
-    },
-    {
-      "relativePath": "organizations/ai-helmsman/tests/strategy_planning.test.mjs",
-      "bytes": 9939,
-      "sha256": "f8e88b5ea150d82b92d5edd465d4cd912b1e7c0a6eb12235fa381eb7ee1c9d26"
     },
     {
       "relativePath": "organizations/ai-helmsman/TROUBLESHOOTING.md",
@@ -574,8 +419,18 @@
     },
     {
       "relativePath": "package.json",
-      "bytes": 292,
-      "sha256": "5cb84d848be239719868dd4eed5eea8da6e8741a29504ad18433d8226f503e29"
+      "bytes": 322,
+      "sha256": "299f6c6509a6c1c099355674aeebfdee8aea576e55cb4f649e26ea3ad8685db9"
+    },
+    {
+      "relativePath": "PUBLIC_PACKAGE_CONTRACT.json",
+      "bytes": 1331,
+      "sha256": "4a14fd22fd5face8c60e1894f6b6c3a607cee19a38c97ca99c12edea606af99b"
+    },
+    {
+      "relativePath": "public-simulation.mjs",
+      "bytes": 1913,
+      "sha256": "04fd31615efed069e360cac4b88cbe7b5d3c6dd1ab22ca9f98a364471340e4d9"
     },
     {
       "relativePath": "public-skills/registry.json",
@@ -583,9 +438,14 @@
       "sha256": "d7a731ef0190ae531517d837af1fac4518f903641a24f254a69f886bd03b56ae"
     },
     {
+      "relativePath": "QUICKSTART.md",
+      "bytes": 1107,
+      "sha256": "ee305c0686338480d23666b747b78203b09fad3dab6aa59cd790a1893a764c01"
+    },
+    {
       "relativePath": "README.md",
-      "bytes": 2390,
-      "sha256": "0b0fc9ad6ab71b2393ad764b4ad753d5969d276adf5250a70a3fb674dce4570f"
+      "bytes": 2615,
+      "sha256": "5fbfd843efc88ef12124b3b5925288f1795158de867f7a2cbb1829ee76abea82"
     },
     {
       "relativePath": "scripts/control-center/project_artifact_store.mjs",
@@ -624,8 +484,8 @@
     },
     {
       "relativePath": "shared/FEISHU_KNOWLEDGE_PREFLIGHT_STANDARD.md",
-      "bytes": 3136,
-      "sha256": "2b08c8c0829acb5ef94265ad859b17ef840f75acd77dff4b89c4bea78b520599"
+      "bytes": 3135,
+      "sha256": "3cae425fc0a34be23c95f01c3ebd427bded67031e93d1cbac7836128cd7c0d04"
     },
     {
       "relativePath": "shared/IMAGE_GENERATION_CHANNEL_STANDARD.md",
@@ -634,8 +494,8 @@
     },
     {
       "relativePath": "shared/PRODUCT_ASSET_FIDELITY_STANDARD.md",
-      "bytes": 2693,
-      "sha256": "9bbdf364e69b457c655c7abca8eb959d8a646b0d9ae2aa6f18e0351f6bb1be0e"
+      "bytes": 2692,
+      "sha256": "9935d8ec802cf5f7d0e73be51cc85b58dbe0892b8c7622fed588181f30033e41"
     },
     {
       "relativePath": "verify.mjs",

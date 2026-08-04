@@ -5,7 +5,7 @@
   "type": "module",
   "description": "帮助企业看清现状、判断方向、规划路径并设计可持续商业模式。",
   "scripts": {
-    "test": "node verify.mjs"
+    "test": "node verify.mjs && node public-simulation.mjs"
   },
   "engines": {
     "node": ">=20"
