@@ -1,26 +1,11 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "detailHeadings": [
-    "核心判断",
-    "深度分析",
-    "依据与边界",
-    "落地建议"
+    "核心结论",
+    "数据与分析",
+    "经营建议"
   ],
-  "fourthLevelHeadings": {
-    "深度分析": [
-      "关键变量",
-      "推导逻辑"
-    ],
-    "依据与边界": [
-      "已知事实",
-      "待验证信息"
-    ],
-    "落地建议": [
-      "执行动作",
-      "验收指标",
-      "风险与停止条件"
-    ]
-  },
+  "fourthLevelHeadings": {},
   "organizations": [
     {
       "organizationId": "ai-helmsman",

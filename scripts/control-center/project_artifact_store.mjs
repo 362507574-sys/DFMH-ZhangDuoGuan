@@ -1,5 +1,5 @@
-import { createHash, randomBytes } from 'node:crypto';
-import { lstat, mkdir, readFile, realpath, rename, rm, writeFile } from 'node:fs/promises';
+import { createHash } from 'node:crypto';
+import { lstat, mkdir, readFile, realpath, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 
 import {
@@ -12,17 +12,17 @@ import {
   requireEnterpriseId,
   requireSafeId,
 } from './project_contract.mjs';
+import { createProjectArtifactLock } from './project_artifact_lock.mjs';
+import { readArtifactSource } from './project_artifact_source.mjs';
 import { createProjectPaths } from './project_paths.mjs';
 import { parseStrictJson } from './strict_json.mjs';
 
 const locks = new Map();
-const ARTIFACT_LOCK_TIMEOUT_MS = 5_000;
-const ARTIFACT_LOCK_STALE_MS = 30_000;
-const ARTIFACT_LOCK_INITIALIZATION_GRACE_MS = 250;
 
 export async function createProjectArtifactStore({ projectRoot, now = () => new Date() } = {}) {
   const paths = await createProjectPaths({ projectRoot });
   const root = path.dirname(paths.businessRoot);
+  const artifactLock = await createProjectArtifactLock({ projectRoot: root });
   return Object.freeze({
     async publish(value = {}) {
       const identity = validateIdentity(value);
@@ -31,7 +31,7 @@ export async function createProjectArtifactStore({ projectRoot, now = () => new 
       }
       const version = requireVersion(value.version);
       const publishJsonContractView = requirePublishJsonContractView(value.publishJsonContractView);
-      const source = await readSource(value.sourcePath);
+      const source = await readArtifactSource(value.sourcePath);
       if (publishJsonContractView) validateJsonContractDocument(source.bytes, identity, version);
       const dependencies = validateDependencies(value.dependencies);
       const artifactType = requireSafeId(value.artifactType, 'artifactType');
@@ -47,90 +47,83 @@ export async function createProjectArtifactStore({ projectRoot, now = () => new 
         await assertSafeDirectoryChain(root, artifactRoot);
         await mkdir(artifactRoot, { recursive: true });
         await assertSafeDirectoryChain(root, artifactRoot, { allowMissing: false });
-        const processLock = await acquireArtifactLock(
-          path.join(artifactRoot, '.publish.lock'),
-          root,
-          ARTIFACT_LOCK_TIMEOUT_MS,
-        );
-        try {
-        const manifestPath = path.join(artifactRoot, 'manifest.json');
-        const current = await readOptionalJson(manifestPath);
-        if (current) {
-          assertExistingManifest(current, identity, { artifactType, sourceOrganizationId });
-        }
-        const safeName = sanitizeFileName(path.basename(value.sourcePath));
-        const versionRoot = path.join(artifactRoot, 'versions', String(version));
-        const contentPath = path.join(versionRoot, 'content', safeName);
-        const artifactMetadataPath = path.join(versionRoot, 'artifact.json');
-        const claimPath = path.join(versionRoot, 'claim.json');
-        const contractViewAbsolutePath = path.join(artifactRoot, `v${version}.json`);
-        const contractViewPath = path.relative(root, contractViewAbsolutePath).split(path.sep).join('/');
-        const prior = current?.versions?.find((item) => item.version === version);
-        await assertSafeDirectoryChain(root, versionRoot);
-        const orphanedMetadata = prior ? null : await readOptionalJson(artifactMetadataPath);
-        const metadata = {
-          schemaVersion: 1,
-          ...identity,
-          artifactType,
-          sourceOrganizationId,
-          sourceTaskId,
-          version,
-          status: value.status,
-          sha256: source.sha256,
-          size: source.bytes.length,
-          contentPath: path.relative(artifactRoot, contentPath).split(path.sep).join('/'),
-          dependencies,
-          publishedAt: prior?.publishedAt ?? orphanedMetadata?.publishedAt ?? isoNow(now),
-          ...(publishJsonContractView ? { contractViewPath } : {}),
-        };
-        if (prior) {
-          if (JSON.stringify(prior) !== JSON.stringify(metadata)) {
-            throw new Error('artifact version is immutable and conflicts with stored metadata');
+        return artifactLock.run(identity, async () => {
+          const manifestPath = path.join(artifactRoot, 'manifest.json');
+          const current = await readOptionalJson(manifestPath);
+          if (current) {
+            assertExistingManifest(current, identity, { artifactType, sourceOrganizationId });
           }
-          const verified = await materializeAndVerify(prior, artifactRoot, root);
-          await ensureImmutableClaim(claimPath, stableClaim(prior), root);
-          return deepFreeze(verified);
-        }
-        if (orphanedMetadata) {
-          if (JSON.stringify(orphanedMetadata) !== JSON.stringify(metadata)) {
-            throw new Error('artifact version is immutable and conflicts with stored metadata');
+          const safeName = sanitizeFileName(path.basename(value.sourcePath));
+          const versionRoot = path.join(artifactRoot, 'versions', String(version));
+          const contentPath = path.join(versionRoot, 'content', safeName);
+          const artifactMetadataPath = path.join(versionRoot, 'artifact.json');
+          const claimPath = path.join(versionRoot, 'claim.json');
+          const contractViewAbsolutePath = path.join(artifactRoot, `v${version}.json`);
+          const contractViewPath = path.relative(root, contractViewAbsolutePath).split(path.sep).join('/');
+          const prior = current?.versions?.find((item) => item.version === version);
+          await assertSafeDirectoryChain(root, versionRoot);
+          const orphanedMetadata = prior ? null : await readOptionalJson(artifactMetadataPath);
+          const metadata = {
+            schemaVersion: 1,
+            ...identity,
+            artifactType,
+            sourceOrganizationId,
+            sourceTaskId,
+            version,
+            status: value.status,
+            sha256: source.sha256,
+            size: source.bytes.length,
+            contentPath: path.relative(artifactRoot, contentPath).split(path.sep).join('/'),
+            dependencies,
+            publishedAt: prior?.publishedAt ?? orphanedMetadata?.publishedAt ?? isoNow(now),
+            ...(publishJsonContractView ? { contractViewPath } : {}),
+          };
+          if (prior) {
+            if (JSON.stringify(prior) !== JSON.stringify(metadata)) {
+              throw new Error('artifact version is immutable and conflicts with stored metadata');
+            }
+            const verified = await materializeAndVerify(prior, artifactRoot, root);
+            await ensureImmutableClaim(claimPath, stableClaim(prior), root);
+            return deepFreeze(verified);
           }
-          await materializeAndVerify(orphanedMetadata, artifactRoot, root);
-          await ensureImmutableClaim(claimPath, stableClaim(orphanedMetadata), root);
-        } else {
-          await assertSafeDirectoryChain(root, path.dirname(contentPath));
-          await assertSafeDirectoryChain(root, artifactRoot);
-          await assertImmutableTargetCompatible(contentPath, source.bytes);
-          if (publishJsonContractView) {
-            await assertImmutableTargetCompatible(contractViewAbsolutePath, source.bytes);
+          if (orphanedMetadata) {
+            if (JSON.stringify(orphanedMetadata) !== JSON.stringify(metadata)) {
+              throw new Error('artifact version is immutable and conflicts with stored metadata');
+            }
+            await materializeAndVerify(orphanedMetadata, artifactRoot, root);
+            await ensureImmutableClaim(claimPath, stableClaim(orphanedMetadata), root);
+          } else {
+            await assertSafeDirectoryChain(root, path.dirname(contentPath));
+            await assertSafeDirectoryChain(root, artifactRoot);
+            await assertImmutableTargetCompatible(contentPath, source.bytes);
+            if (publishJsonContractView) {
+              await assertImmutableTargetCompatible(contractViewAbsolutePath, source.bytes);
+            }
+            await mkdir(versionRoot, { recursive: true });
+            await assertSafeDirectoryChain(root, versionRoot, { allowMissing: false });
+            await ensureImmutableClaim(claimPath, stableClaim(metadata), root);
+            await mkdir(path.dirname(contentPath), { recursive: true });
+            await assertSafeDirectoryChain(root, path.dirname(contentPath), { allowMissing: false });
+            await writeImmutable(contentPath, source.bytes);
+            if (publishJsonContractView) {
+              await assertSafeDirectoryChain(root, artifactRoot, { allowMissing: false });
+              await writeImmutable(contractViewAbsolutePath, source.bytes);
+            }
+            await assertSafeDirectoryChain(root, versionRoot, { allowMissing: false });
+            await writeJsonAtomic(artifactMetadataPath, metadata);
           }
-          await mkdir(versionRoot, { recursive: true });
-          await assertSafeDirectoryChain(root, versionRoot, { allowMissing: false });
-          await ensureImmutableClaim(claimPath, stableClaim(metadata), root);
-          await mkdir(path.dirname(contentPath), { recursive: true });
-          await assertSafeDirectoryChain(root, path.dirname(contentPath), { allowMissing: false });
-          await writeImmutable(contentPath, source.bytes);
-          if (publishJsonContractView) {
-            await assertSafeDirectoryChain(root, artifactRoot, { allowMissing: false });
-            await writeImmutable(contractViewAbsolutePath, source.bytes);
-          }
-          await assertSafeDirectoryChain(root, versionRoot, { allowMissing: false });
-          await writeJsonAtomic(artifactMetadataPath, metadata);
-        }
-        const manifest = {
-          schemaVersion: 1,
-          ...identity,
-          artifactType: metadata.artifactType,
-          sourceOrganizationId: metadata.sourceOrganizationId,
-          currentVersion: current?.currentVersion ?? version,
-          versions: [...(current?.versions ?? []), metadata].sort((a, b) => a.version - b.version),
-        };
-        await assertSafeDirectoryChain(root, artifactRoot, { allowMissing: false });
-        await writeJsonAtomic(manifestPath, manifest);
-        return deepFreeze(await materializeAndVerify(metadata, artifactRoot, root));
-        } finally {
-          await releaseArtifactLock(processLock, root);
-        }
+          const manifest = {
+            schemaVersion: 1,
+            ...identity,
+            artifactType: metadata.artifactType,
+            sourceOrganizationId: metadata.sourceOrganizationId,
+            currentVersion: current?.currentVersion ?? version,
+            versions: [...(current?.versions ?? []), metadata].sort((a, b) => a.version - b.version),
+          };
+          await assertSafeDirectoryChain(root, artifactRoot, { allowMissing: false });
+          await writeJsonAtomic(manifestPath, manifest);
+          return deepFreeze(await materializeAndVerify(metadata, artifactRoot, root));
+        });
       });
     },
 
@@ -144,7 +137,12 @@ export async function createProjectArtifactStore({ projectRoot, now = () => new 
       );
       await assertSafeDirectoryChain(root, artifactRoot, { allowMissing: false });
       const manifest = await readJson(path.join(artifactRoot, 'manifest.json'));
-      assertManifestIdentity(manifest, identity);
+      const artifactType = requireSafeId(manifest?.artifactType, 'artifact manifest artifactType');
+      const sourceOrganizationId = requireSafeId(
+        manifest?.sourceOrganizationId,
+        'artifact manifest sourceOrganizationId',
+      );
+      assertExistingManifest(manifest, identity, { artifactType, sourceOrganizationId });
       const metadata = manifest.versions.find((item) => item.version === version);
       if (!metadata) throw new Error('artifact version does not exist');
       return deepFreeze(await materializeAndVerify(metadata, artifactRoot, root));
@@ -162,18 +160,20 @@ export async function createProjectArtifactStore({ projectRoot, now = () => new 
           identity.artifactId,
         );
         await assertSafeDirectoryChain(root, artifactRoot, { allowMissing: false });
-        const manifestPath = path.join(artifactRoot, 'manifest.json');
-        const manifest = await readJson(manifestPath);
-        assertManifestIdentity(manifest, identity);
-        if (manifest.currentVersion !== expected) throw new Error('artifact current version conflict');
-        if (!manifest.versions.some((item) => item.version === next)) {
-          throw new Error('next artifact version does not exist');
-        }
-        if (expected === next) return deepFreeze(manifest);
-        const updated = { ...manifest, currentVersion: next };
-        await assertSafeDirectoryChain(root, artifactRoot, { allowMissing: false });
-        await writeJsonAtomic(manifestPath, updated);
-        return deepFreeze(updated);
+        return artifactLock.run(identity, async () => {
+          const manifestPath = path.join(artifactRoot, 'manifest.json');
+          const manifest = await readJson(manifestPath);
+          assertManifestIdentity(manifest, identity);
+          if (manifest.currentVersion !== expected) throw new Error('artifact current version conflict');
+          if (!manifest.versions.some((item) => item.version === next)) {
+            throw new Error('next artifact version does not exist');
+          }
+          if (expected === next) return deepFreeze(manifest);
+          const updated = { ...manifest, currentVersion: next };
+          await assertSafeDirectoryChain(root, artifactRoot, { allowMissing: false });
+          await writeJsonAtomic(manifestPath, updated);
+          return deepFreeze(updated);
+        });
       });
     },
 
@@ -235,16 +235,6 @@ function requirePublishJsonContractView(value) {
 function requireSha256(value, label) {
   if (typeof value !== 'string' || !/^[a-f0-9]{64}$/u.test(value)) throw new Error(`${label} is invalid`);
   return value;
-}
-
-async function readSource(sourcePath) {
-  if (typeof sourcePath !== 'string' || !path.isAbsolute(sourcePath)) {
-    throw new Error('artifact sourcePath must be absolute');
-  }
-  const direct = await lstat(sourcePath);
-  if (!direct.isFile() || direct.isSymbolicLink()) throw new Error('artifact source must be a regular file');
-  const bytes = await readFile(sourcePath);
-  return { bytes, sha256: createHash('sha256').update(bytes).digest('hex') };
 }
 
 function validateJsonContractDocument(bytes, identity, version) {
@@ -494,158 +484,6 @@ async function ensureImmutableClaim(claimPath, claim, root) {
     catch (cause) { throw new Error('artifact version claim is invalid', { cause }); }
     if (JSON.stringify(existing) !== JSON.stringify(claim)) {
       throw new Error('artifact version claim is immutable and conflicts with stored metadata');
-    }
-  }
-}
-
-async function acquireArtifactLock(lockPath, root, timeoutMs) {
-  const deadline = Date.now() + timeoutMs;
-  for (;;) {
-    let createdIdentity = null;
-    try {
-      await assertSafeDirectoryChain(root, path.dirname(lockPath), { allowMissing: false });
-      await mkdir(lockPath);
-      const direct = await lstat(lockPath);
-      if (!direct.isDirectory() || direct.isSymbolicLink()) throw new Error('artifact publish lock is unsafe');
-      createdIdentity = captureDirectoryIdentity(direct);
-      await assertSafeDirectoryChain(root, lockPath, { allowMissing: false });
-      const owner = {
-        pid: process.pid,
-        acquiredAt: Date.now(),
-        nonce: randomBytes(12).toString('hex'),
-      };
-      const ownerPath = path.join(lockPath, 'owner.json');
-      await writeJsonAtomic(ownerPath, owner);
-      return { lockPath, ownerPath, directoryIdentity: createdIdentity, owner };
-    } catch (error) {
-      if (createdIdentity) {
-        const inspection = await inspectArtifactLockOwner(path.join(lockPath, 'owner.json')).catch(() => ({
-          kind: 'missing',
-        }));
-        await quarantineArtifactLock(lockPath, root, createdIdentity, inspection).catch(() => false);
-        throw error;
-      }
-      if (error?.code !== 'EEXIST') throw error;
-      await reclaimArtifactLock(lockPath, root);
-      if (Date.now() >= deadline) throw new Error('artifact publish lock timed out');
-      await new Promise((resolve) => setTimeout(resolve, 10));
-    }
-  }
-}
-
-async function reclaimArtifactLock(lockPath, root) {
-  const direct = await lstat(lockPath).catch((error) =>
-    error?.code === 'ENOENT' ? null : Promise.reject(error));
-  if (!direct) return false;
-  if (!direct.isDirectory() || direct.isSymbolicLink()) throw new Error('artifact publish lock is unsafe');
-  try { await assertSafeDirectoryChain(root, lockPath, { allowMissing: false }); }
-  catch (error) {
-    if (['EBADF', 'ENOENT'].includes(error?.code)) return false;
-    throw error;
-  }
-  const directoryIdentity = captureDirectoryIdentity(direct);
-  const inspection = await inspectArtifactLockOwner(path.join(lockPath, 'owner.json'));
-  if (inspection.kind === 'valid') {
-    const ageMs = Date.now() - inspection.owner.acquiredAt;
-    if (ageMs < ARTIFACT_LOCK_STALE_MS || pidAlive(inspection.owner.pid)) return false;
-  } else {
-    const ageMs = Date.now() - direct.ctimeMs;
-    if (!Number.isFinite(ageMs) || ageMs < ARTIFACT_LOCK_INITIALIZATION_GRACE_MS) return false;
-  }
-  return quarantineArtifactLock(lockPath, root, directoryIdentity, inspection);
-}
-
-async function releaseArtifactLock(lock, root) {
-  const direct = await lstat(lock.lockPath).catch((error) =>
-    error?.code === 'ENOENT' ? null : Promise.reject(error));
-  if (!direct || !direct.isDirectory() || direct.isSymbolicLink()) return;
-  const directoryIdentity = captureDirectoryIdentity(direct);
-  if (!sameDirectoryIdentity(directoryIdentity, lock.directoryIdentity)) return;
-  const inspection = await inspectArtifactLockOwner(lock.ownerPath);
-  if (inspection.kind !== 'valid' || !sameLockOwner(inspection.owner, lock.owner)) return;
-  await quarantineArtifactLock(lock.lockPath, root, directoryIdentity, inspection);
-}
-
-async function quarantineArtifactLock(lockPath, root, expectedIdentity, expectedInspection) {
-  await assertSafeDirectoryChain(root, path.dirname(lockPath), { allowMissing: false });
-  const quarantinePath = `${lockPath}.quarantine-${process.pid}-${randomBytes(12).toString('hex')}`;
-  if (!await renameArtifactLockPath(lockPath, quarantinePath)) return false;
-  const direct = await lstat(quarantinePath).catch(() => null);
-  const inspection = await inspectArtifactLockOwner(path.join(quarantinePath, 'owner.json')).catch(() => ({
-    kind: 'unsafe',
-  }));
-  if (!direct
-      || !sameDirectoryIdentity(captureDirectoryIdentity(direct), expectedIdentity)
-      || !sameLockInspection(inspection, expectedInspection)) {
-    await renameArtifactLockPath(quarantinePath, lockPath).catch(() => false);
-    return false;
-  }
-  await assertSafeDirectoryChain(root, quarantinePath, { allowMissing: false });
-  await rm(quarantinePath, { recursive: true, force: true });
-  return true;
-}
-
-async function inspectArtifactLockOwner(ownerPath) {
-  const direct = await lstat(ownerPath).catch((error) =>
-    error?.code === 'ENOENT' ? null : Promise.reject(error));
-  if (!direct) return { kind: 'missing' };
-  if (!direct.isFile() || direct.isSymbolicLink()) return { kind: 'unsafe' };
-  const raw = await readFile(ownerPath, 'utf8').catch((error) =>
-    error?.code === 'ENOENT' ? null : Promise.reject(error));
-  if (raw === null) return { kind: 'missing' };
-  const fingerprint = createHash('sha256').update(raw).digest('hex');
-  if (Buffer.byteLength(raw) > 4096) return { kind: 'invalid', fingerprint };
-  try {
-    const owner = parseStrictJson(raw, 'artifact publish lock owner');
-    if (!owner || typeof owner !== 'object' || Array.isArray(owner)
-        || !Number.isSafeInteger(owner.pid) || owner.pid < 1
-        || !Number.isFinite(owner.acquiredAt)
-        || typeof owner.nonce !== 'string' || !/^[a-f0-9]{24}$/u.test(owner.nonce)) {
-      return { kind: 'invalid', fingerprint };
-    }
-    return { kind: 'valid', owner };
-  } catch {
-    return { kind: 'invalid', fingerprint };
-  }
-}
-
-function captureDirectoryIdentity(direct) {
-  return { dev: direct.dev, ino: direct.ino };
-}
-
-function sameDirectoryIdentity(left, right) {
-  return left?.dev === right?.dev && left?.ino === right?.ino;
-}
-
-function sameLockOwner(left, right) {
-  return left?.pid === right?.pid
-    && left?.acquiredAt === right?.acquiredAt
-    && left?.nonce === right?.nonce;
-}
-
-function sameLockInspection(left, right) {
-  if (!left || !right || left.kind !== right.kind) return false;
-  if (left.kind === 'missing') return true;
-  if (left.kind === 'valid') return sameLockOwner(left.owner, right.owner);
-  if (left.kind === 'invalid') return left.fingerprint === right.fingerprint;
-  return false;
-}
-
-function pidAlive(pid) {
-  try { process.kill(pid, 0); return true; }
-  catch (error) { return error?.code === 'EPERM'; }
-}
-
-async function renameArtifactLockPath(sourcePath, targetPath) {
-  const retryDelaysMs = [5, 10, 25, 50, 100];
-  for (let attempt = 0; ; attempt += 1) {
-    try { await rename(sourcePath, targetPath); return true; }
-    catch (error) {
-      if (error?.code === 'ENOENT') return false;
-      if (!['EACCES', 'EBUSY', 'EPERM'].includes(error?.code) || attempt >= retryDelaysMs.length) {
-        throw error;
-      }
-      await new Promise((resolve) => setTimeout(resolve, retryDelaysMs[attempt]));
     }
   }
 }
