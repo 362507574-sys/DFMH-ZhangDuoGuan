@@ -5,12 +5,12 @@
   "displayName": "AI掌舵官",
   "status": "designing",
   "acceptsFormalTasks": false,
-  "generatedAt": "2026-08-06T01:27:43.948Z",
+  "generatedAt": "2026-08-06T01:58:31.891Z",
   "files": [
     {
       "relativePath": ".dfmh-generated-package",
       "bytes": 25,
-      "sha256": "1d9e531ba7a260c6d5895de96671c97895ea9b5f54b4f4a2b42f6318e7624597"
+      "sha256": "1bdadc10713c55a0b978eee71114d4058afd2474bda1eb14053622f8e3b2ebbf"
     },
     {
       "relativePath": ".gitignore",
@@ -314,8 +314,8 @@
     },
     {
       "relativePath": "organizations/ai-helmsman/skills/business-model/SKILL.md",
-      "bytes": 10161,
-      "sha256": "cc36f31832724b403be5b5a8605b25eb394d965b7335ea2412d2ba56c4c263c4"
+      "bytes": 10713,
+      "sha256": "d2cbe68491d4293d2e923fcffa81f8dddf54d8b550e4a548666ffd568f42343e"
     },
     {
       "relativePath": "organizations/ai-helmsman/skills/enterprise-analysis/agents/openai.yaml",
@@ -324,8 +324,8 @@
     },
     {
       "relativePath": "organizations/ai-helmsman/skills/enterprise-analysis/SKILL.md",
-      "bytes": 10853,
-      "sha256": "39da21a2d48586afe2fda0db8705133c0919296810c5d3109312961e2a995893"
+      "bytes": 11405,
+      "sha256": "5ac27eaa091ba3b6f8ca54a8700bf596952a18e45e2b5f465e701a41c2271901"
     },
     {
       "relativePath": "organizations/ai-helmsman/skills/README.md",
@@ -339,8 +339,8 @@
     },
     {
       "relativePath": "organizations/ai-helmsman/skills/strategy-planning/SKILL.md",
-      "bytes": 9229,
-      "sha256": "18d64b0143ba45188254d398c6570d46253728fc73cb6dd7c9d2b0bc0e54d839"
+      "bytes": 9781,
+      "sha256": "4bc400a04798201fc02ffb0f044451cb594c6176a59c68bfdc4742ad8c650dd6"
     },
     {
       "relativePath": "organizations/ai-helmsman/templates/BUSINESS_MODEL_CANDIDATE.json",
@@ -439,13 +439,13 @@
     },
     {
       "relativePath": "QUICKSTART.md",
-      "bytes": 1107,
-      "sha256": "ee305c0686338480d23666b747b78203b09fad3dab6aa59cd790a1893a764c01"
+      "bytes": 3381,
+      "sha256": "7b915e92253bcc3b653399c61f8f11e904c76234287a8f13b870fe3dd8378285"
     },
     {
       "relativePath": "README.md",
-      "bytes": 2615,
-      "sha256": "b1b31ba425d8d469ae2c8e79130240bcba438fe2a6a77b7bf998394fcce89de0"
+      "bytes": 3334,
+      "sha256": "f309805cbe759a8469a5859206d678dc969bf0232044a8f8c7206a542b98794e"
     },
     {
       "relativePath": "scripts/control-center/project_artifact_lock.mjs",
